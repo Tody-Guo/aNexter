@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, ANexterActivity!</string>
+    <string name="app_name">aNexter</string>
+    <string name="view_about">About aNexter</string>
+    <string name="copyright">© Tody 2012</string>
+    
+    <string name="str_Start">Start</string>
+    
+</resources>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <Button
+            android:id="@+id/btn_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="Pass"
+            android:width="100dp" />
+
+        <Button
+            android:id="@+id/btn_fail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="Fail"
+            android:width="100dp" />
+
+        <Button
+            android:id="@+id/btn_na"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="N/A"
+            android:width="100dp" />
+
+        <ProgressBar
+            android:id="@+id/progressBar1"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true" android:max="25" android:progress="22"/>
+
+        <Button
+            android:id="@+id/btn_gyro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="打开Gyro" />
+
+        <TextView
+            android:id="@+id/v_z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btn_gyro"
+            android:layout_alignLeft="@+id/btn_gyro"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/v_y"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/v_z"
+            android:layout_alignLeft="@+id/v_z"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/v_x"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/v_y"
+            android:layout_alignLeft="@+id/v_y"
+            android:text="TextView" />
+
+    </RelativeLayout>
+
+</LinearLayout>

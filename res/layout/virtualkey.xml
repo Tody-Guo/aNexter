@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <Button
+            android:id="@+id/btn_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="Pass"
+            android:width="100dp" />
+
+        <Button
+            android:id="@+id/btn_fail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="Fail"
+            android:width="100dp" />
+
+        <Button
+            android:id="@+id/btn_na"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="N/A"
+            android:width="100dp" />
+
+        <ProgressBar
+            android:id="@+id/progressBar1"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:max="25" />
+
+        <CheckBox
+            android:id="@+id/chk_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/btn_pass"
+            android:layout_below="@+id/btn_pass"
+            android:layout_marginTop="23dp"
+            android:clickable="false"
+            android:text="BACK" />
+
+        <CheckBox
+            android:id="@+id/chk_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/chk_back"
+            android:layout_below="@+id/chk_back"
+            android:layout_marginTop="44dp"
+            android:clickable="false"
+            android:text="MENU" />
+
+        <CheckBox
+            android:id="@+id/chk_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/chk_menu"
+            android:layout_below="@+id/chk_menu"
+            android:layout_marginTop="42dp"
+            android:clickable="false"
+            android:text="HOME" />
+
+        <CheckBox
+            android:id="@+id/chk_volminus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/chk_menu"
+            android:layout_toRightOf="@+id/btn_na"
+            android:clickable="false"
+            android:text="VOL -" />
+
+        <CheckBox
+            android:id="@+id/chk_volplus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/chk_menu"
+            android:layout_alignParentLeft="true"
+            android:clickable="false"
+            android:text="VOL +" />
+
+    </RelativeLayout>
+
+</LinearLayout>
