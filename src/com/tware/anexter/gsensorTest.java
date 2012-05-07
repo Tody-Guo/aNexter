@@ -35,7 +35,7 @@ public class gsensorTest extends Activity {
         	{
         		Intent i = new Intent();
         		i.putExtra("LOG", LOG + "PASS|");
-        		i.setClass(gsensorTest.this , ethernet.class);
+        		i.setClass(gsensorTest.this , mp3.class);
         		startActivity(i);
         		finish();
         	}
@@ -93,7 +93,7 @@ public class gsensorTest extends Activity {
 	  {
 		Intent i = new Intent();
 	  	i.putExtra("LOG", LOG + "PASS|");
-	  	i.setClass(gsensorTest.this , ethernet.class);
+	  	i.setClass(gsensorTest.this , mp3.class);
 	  	startActivity(i);
 	  	finish();
 	  }
