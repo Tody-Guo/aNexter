@@ -32,7 +32,7 @@ public class recording extends Activity {
         		Intent i = new Intent();
         		i.putExtra("LOG", LOG + "PASS|");
 //        		i.setClass(recording.this , lcdrgb.class); //2012-04-03: removed
-           		i.setClass(recording.this , brightness.class); // 2012-04-03: change lcdrgb to brightness
+           		i.setClass(recording.this , dateTime.class); // 2012-04-03: change lcdrgb to brightness
            	    startActivity(i);
         		recording.this.finish();
         	}
