@@ -38,7 +38,7 @@ public class batinfo extends Activity {
         	{
         		Intent i = new Intent();
         		i.putExtra("LOG", LOG + "PASS|");
-        		i.setClass(batinfo.this , gsensorTest.class);
+        		i.setClass(batinfo.this , vibrator.class);
         		startActivity(i);
         		batinfo.this.finish();
         	}
@@ -156,7 +156,7 @@ public class batinfo extends Activity {
 			{
         		Intent i = new Intent();
         		i.putExtra("LOG", LOG + "PASS|");
-        		i.setClass(batinfo.this , gsensorTest.class);
+        		i.setClass(batinfo.this , vibrator.class);
         		startActivity(i);
 				batinfo.this.finish();
 			}
