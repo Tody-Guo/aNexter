@@ -108,7 +108,7 @@ public class sdcardRW extends Activity {
         		Intent i = new Intent();
         		i.putExtra("LOG", LOG + "PASS|");
 //        		i.setClass(sdcardRW.this , mp3.class);  //2012-04-03: removed
-        		i.setClass(sdcardRW.this, recording.class); //2012-04-03: change to soundrecord.java
+        		i.setClass(sdcardRW.this, brightness.class); //2012-04-03: change to soundrecord.java
         		startActivity(i);
                 sdcardRW.this.finish();
         	}
