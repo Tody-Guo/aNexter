@@ -42,7 +42,7 @@ public class virtualKeys extends Activity{
         		{
         			Intent i = new Intent();
         			i.putExtra("LOG", LOG + "PASS|");
-        			i.setClass(virtualKeys.this , dateTime.class);
+        			i.setClass(virtualKeys.this , gsensorTest.class);
         			timer.cancel();
         			startActivity(i);
         			virtualKeys.this.finish();
@@ -94,7 +94,7 @@ public class virtualKeys extends Activity{
 					{
 		        		Intent i = new Intent();
 		        		i.putExtra("LOG", LOG + "PASS|");
-		        		i.setClass(virtualKeys.this , dateTime.class);
+		        		i.setClass(virtualKeys.this , gsensorTest.class);
 		        		timer.cancel();
 		        		timer = null;
 		        		startActivity(i);
