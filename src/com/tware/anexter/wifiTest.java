@@ -108,7 +108,7 @@ public class wifiTest extends Activity {
 		        		timer = null;
 		        		Intent i = new Intent();
 		        		i.putExtra("LOG", LOG + wifiInfo.getMacAddress().toUpperCase() + "|");
-		        		i.setClass(wifiTest.this , vibrator.class);
+		        		i.setClass(wifiTest.this , imageMcu.class);
 		        		startActivity(i);
 		        		wifiTest.this.finish();
 			        }
