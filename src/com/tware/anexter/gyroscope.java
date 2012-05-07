@@ -76,7 +76,7 @@ public class gyroscope extends Activity implements SensorEventListener{
         	{
         		Intent i = new Intent();
         		i.putExtra("LOG", LOG + "PASS|");
-        		i.setClass(gyroscope.this , suspend.class);
+        		i.setClass(gyroscope.this , getResults.class);
         		startActivity(i);
         		gyroscope.this.finish();
         	}
@@ -128,7 +128,7 @@ public class gyroscope extends Activity implements SensorEventListener{
         	{
         		Intent i = new Intent();
         		i.putExtra("LOG", LOG + "N/A|");
-        		i.setClass(gyroscope.this , suspend.class);
+        		i.setClass(gyroscope.this , getResults.class);
         		startActivity(i);
         		gyroscope.this.finish();
         	}
