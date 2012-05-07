@@ -6,6 +6,7 @@ import java.util.TimerTask;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -29,6 +30,8 @@ public class lcdrgb extends Activity {
 	private View rgb;
 	private ProgressBar bar;
 	private String LOG;
+	
+	private MediaPlayer mediaplay = null;
 
     /** Called when the activity is first created. */
     @Override
@@ -115,6 +118,17 @@ public class lcdrgb extends Activity {
 //        Toast.makeText(getApplicationContext(), LOG, Toast.LENGTH_SHORT).show();
       
         timer.schedule(task, 1000,3000);  // start timer, 3s per time.
+        
+		if (mediaplay == null)
+		{
+			mediaplay=MediaPlayer.create(this, R.raw.ilu);
+		}
+		
+		if (!mediaplay.isPlaying())
+		{
+			mediaplay.setLooping(true);
+			mediaplay.start();
+		}
     }
     
     Handler uhandle = new Handler();
@@ -197,6 +211,11 @@ public class lcdrgb extends Activity {
 	    	timer = null;
 	    	Log.w("aNexter", "LCD Timer canceled from onStop()............");
 			return;
+		}
+		
+		if ( mediaplay != null)
+		{
+			mediaplay.release();
 		}
     }
     
