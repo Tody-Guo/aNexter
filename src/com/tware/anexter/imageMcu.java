@@ -40,7 +40,7 @@ public class imageMcu extends Activity {
         	{
         		Intent i = new Intent();
         		i.putExtra("LOG", LOG + mMCU_version + "|" + release + "|");
-        		i.setClass(imageMcu.this , compass.class);
+        		i.setClass(imageMcu.this , uHDMI.class);
         		startActivity(i);
         		imageMcu.this.finish();
         	}
