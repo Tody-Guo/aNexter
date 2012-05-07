@@ -37,7 +37,7 @@ public class wifiBtMac extends Activity {
         	{
         		Intent i = new Intent();
         		i.putExtra("LOG", LOG + "PASS|");
-        		i.setClass(wifiBtMac.this , imageMcu.class);
+        		i.setClass(wifiBtMac.this , drawline.class);
         		startActivity(i);
         		wifiBtMac.this.finish();
         	}
