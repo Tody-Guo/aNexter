@@ -33,7 +33,7 @@ public class vibrator extends Activity {
         	{
         		Intent i = new Intent();
         		i.putExtra("LOG", LOG + "PASS|");
-        		i.setClass(vibrator.this , uHDMI.class);
+        		i.setClass(vibrator.this , sdcardRW.class);
         		startActivity(i);
         		vibrator.this.finish();
         		vibrator.this.finish();
@@ -74,7 +74,7 @@ public class vibrator extends Activity {
         	{
         		Intent i = new Intent();
         		i.putExtra("LOG", LOG + "N/A|");
-        		i.setClass(vibrator.this , uHDMI.class);
+        		i.setClass(vibrator.this , sdcardRW.class);
         		startActivity(i);
         		vibrator.this.finish();
         	}
