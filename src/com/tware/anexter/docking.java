@@ -37,7 +37,7 @@ public class docking extends Activity {
         		Intent i = new Intent();
         		i.putExtra("LOG", LOG + "PASS|");
 //        		i.setClass(docking.this , recording.class);  //2012-04-03: removed
-        		i.setClass(docking.this , mp3.class); // 2012-04-03: change record to mp3
+        		i.setClass(docking.this , lcdrgb.class); // 2012-04-03: change record to mp3
         		startActivity(i);
         		docking.this.finish();
         	}
@@ -95,7 +95,7 @@ public class docking extends Activity {
         		Intent i = new Intent();
         		i.putExtra("LOG", LOG + "N/A|");
 //        		i.setClass(docking.this , recording.class);  //2012-04-03: removed
-        		i.setClass(docking.this , mp3.class); // 2012-04-03: change record to mp3
+        		i.setClass(docking.this , lcdrgb.class); // 2012-04-03: change record to mp3
         		startActivity(i);
         		docking.this.finish();
         	}
