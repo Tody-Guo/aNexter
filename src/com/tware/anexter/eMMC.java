@@ -41,7 +41,7 @@ public class eMMC extends Activity {
         	{
         		Intent i = new Intent();
         		i.putExtra("LOG", LOG + String.format("%.0fGB", eMMC_Total) +"|");
-        		i.setClass(eMMC.this , wifiBtMac.class);
+        		i.setClass(eMMC.this , compass.class);
         		startActivity(i);
         		eMMC.this.finish();
         	}
