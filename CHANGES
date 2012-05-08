@@ -1,5 +1,11 @@
 v1.1.0 @ 2012/05/09
-*) Change some positions
+*) Changed some test items positions(G-sensor, mp3, record, vibrator, sdrw, brightness, mac, image, hdmi)
+*) Changed xml progress
+*) Changed Layout progress
+*) Removed suspend test
+*) Removed ethernet test
+*) Added background music @ LCD RGB Test
+*) Added source code to github.com(https://Tody-Guo@github.com/Tody-Guo/aNexter.git)
 
 v1.0.9 @ 2012/05/02
 *) First release to github.com
