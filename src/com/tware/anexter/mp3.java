@@ -85,7 +85,7 @@ public class mp3 extends Activity {
         		Intent i = new Intent();
         		i.putExtra("LOG", LOG + "PASS|");
 //        		i.setClass(mp3.this , brightness.class);  //2012-04-03: removed
-        		i.setClass(mp3.this , lcdrgb.class);
+        		i.setClass(mp3.this , recording.class);
         		startActivity(i);
         		if (bPlay.getText().equals("停止播放") || 
         			bPlay.getText().equals("开始播放"))
@@ -173,8 +173,7 @@ public class mp3 extends Activity {
                 			Toast.LENGTH_SHORT).show();
                 }
         	}
-        });		
-        
+        });	
     }
     
     public boolean findMusic(String sdPath1)
