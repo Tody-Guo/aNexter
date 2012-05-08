@@ -126,7 +126,7 @@ public class lcdrgb extends Activity {
 		
 		if (!mediaplay.isPlaying())
 		{
-			mediaplay.setLooping(true);
+			mediaplay.setLooping(false);
 			mediaplay.start();
 		}
     }
