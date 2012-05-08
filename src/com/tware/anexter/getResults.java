@@ -35,7 +35,7 @@ public class getResults extends Activity {
 	private TextView resFail;
 	private TextView resNa;
 	
-	// for later use.
+	// for later use. reserved ...
 	private final int R_VKEY = 1;
 	private final int R_TIME = 2;
 	private final int R_BATT = 3;
@@ -172,32 +172,32 @@ public class getResults extends Activity {
     	switch(id)
     	{
     		case  1: strName = "Virtual Keys"; break;
-    		case  2: strName = "Date and Time"; break;
-    		case  3: strName = "Battery Information";break;
-    		case  4: strName = "G-Sensor"; break;
-    		case  5: strName = "Ethernet(USB to LAN)"; break;
-    		case  6: strName = "SD R/W Test"; break;
-    		case  7: strName = "Sound Recorder"; break;
-    		case  8: strName = "LCD Brightness"; break;
-    		case  9: strName = "Draw Line"; break;
-    		case 10: strName = "Input charactor"; break;
-    		case 11: strName = "WiFi Connection"; break;
-    		case 12: strName = "Vibrator"; break;
-    		case 13: strName = "U Disk & HDMI"; break;
-    		case 14: strName = "Docking"; break;
-    		case 15: strName = "Earphone/MP3/MP4"; break;
-    		case 16: strName = "LCD RGB"; break;
-    		case 17: strName = "Connect to PC & Docking USB"; break;    		
-    		case 18: strName = "Bluetooth"; break;
-    		case 19: strName = "Front & Rear Camera"; break;
-    		case 20: strName = "Memory Information"; break;
-    		case 21: strName = "eMMC Size"; break;
-    		case 22: strName = "WiFi & BT MAC"; break;
-    		case 23: strName = "MCU"; break;
-    		case 24: strName = "Image"; break;
-    		case 25: strName = "Compass"; break;
-    		case 26: strName = "Gyroscope"; break;
-    		case 27: strName = "Suspend"; break;
+    		case  2: strName = "G-Sensor"; break;
+    		case  3: strName = "Earphone/MP3/MP4"; break;
+    		case  4: strName = "Sound Recorder"; break;
+    		case  5: strName = "Date and Time"; break;
+    		case  6: strName = "Battery Information";break;
+//    		case  5: strName = "Ethernet(USB to LAN)"; break;
+    		case  7: strName = "Vibrator"; break;
+    		case  8: strName = "SD R/W Test"; break;
+    		case  9: strName = "LCD Brightness"; break;
+    		case 10: strName = "WiFi & BT MAC"; break;
+    		case 11: strName = "Draw Line"; break;
+    		case 12: strName = "Input charactor"; break;
+    		case 13: strName = "WiFi Connection"; break;
+    		case 14: strName = "MCU"; break;
+    		case 15: strName = "Image"; break;
+    		case 16: strName = "U Disk & HDMI"; break;
+    		case 17: strName = "Docking"; break;
+    		case 18: strName = "LCD RGB"; break;
+    		case 19: strName = "Connect to PC & Docking USB"; break;    		
+    		case 20: strName = "Bluetooth"; break;
+    		case 21: strName = "Front & Rear Camera"; break;
+    		case 22: strName = "Memory Information"; break;
+    		case 23: strName = "eMMC Size"; break;
+    		case 24: strName = "Compass"; break;
+    		case 25: strName = "Gyroscope"; break;
+//    		case 27: strName = "Suspend"; break;
 //    		case 28: strName = "3G"; break; //removed @ 03/23/2012
     		default: strName = "Unknown";break;	
     	}
