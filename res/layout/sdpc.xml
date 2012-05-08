@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:max="25" android:progress="15"/>
+            android:max="25" android:progress="16"/>
 
         <Button
             android:id="@+id/btn_dockingusb"

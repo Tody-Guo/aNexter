@@ -44,7 +44,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:max="25"
-            android:progress="12" />
+            android:progress="14" />
 
         <Button
             android:id="@+id/btn_ifileUdisk"
