@@ -52,7 +52,7 @@ public class brightness extends Activity {
         		setBrightness(255);
 	    		Intent i = new Intent();
 	    		i.putExtra("LOG", LOG + "PASS|");
-	    		i.setClass(brightness.this , drawline.class);
+	    		i.setClass(brightness.this , wifiBtMac.class);
 	    		startActivity(i);       		
 	    		brightness.this.finish();
         	}
