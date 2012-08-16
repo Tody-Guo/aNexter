@@ -55,11 +55,11 @@ public class bluetooth extends Activity {
 					"开始重新搜索蓝牙设备……",
 					Toast.LENGTH_SHORT).show();
     		
-    		IntentFilter intentFilter = new IntentFilter();
+/*    		IntentFilter intentFilter = new IntentFilter();
     		intentFilter.addAction("android.bluetooth.device.action.FOUND");
     		registerReceiver(bluetoothReciever, intentFilter);
     		btAdapter.startDiscovery();
-
+*/
 		}
 		
 		btCntV = (TextView)findViewById(R.id.btCntView);
@@ -78,7 +78,7 @@ public class bluetooth extends Activity {
 				}
         		Intent i = new Intent();
         		i.putExtra("LOG", LOG + "PASS|");
-        		i.setClass(bluetooth.this , camera.class);
+        		i.setClass(bluetooth.this , lightSensor.class);
         		startActivity(i);
         		bluetooth.this.finish();
         	}
@@ -131,7 +131,7 @@ public class bluetooth extends Activity {
 				}
         		Intent i = new Intent();
         		i.putExtra("LOG", LOG + "N/A|");
-        		i.setClass(bluetooth.this , camera.class);
+        		i.setClass(bluetooth.this , lightSensor.class);
         		startActivity(i);
         		bluetooth.this.finish();
         	}
@@ -206,7 +206,7 @@ public class bluetooth extends Activity {
 					}
 	        		Intent i = new Intent();
 	        		i.putExtra("LOG", LOG + "PASS|");
-	        		i.setClass(bluetooth.this , camera.class);
+	        		i.setClass(bluetooth.this , lightSensor.class);
 	        		startActivity(i);
 	        		bluetooth.this.finish();
 				}

@@ -2,7 +2,6 @@ package com.tware.anexter;
 
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -92,7 +91,6 @@ public class uDisk extends Activity {
         });
        
         bFail = (Button)findViewById(R.id.btn_fail);
-        bFail.setEnabled(false);
         bFail.setOnClickListener(new OnClickListener(){
         	@Override
     		public void onClick(View v)

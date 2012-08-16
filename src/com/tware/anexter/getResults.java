@@ -193,11 +193,12 @@ public class getResults extends Activity {
     		case 19: strName = "LCD RGB"; break;
     		case 20: strName = "Connect to PC & Docking USB"; break;    		
     		case 21: strName = "Bluetooth"; break;
-    		case 22: strName = "Front & Rear Camera"; break;
-    		case 23: strName = "Memory Information"; break;
-    		case 24: strName = "eMMC Size"; break;
-    		case 25: strName = "Compass"; break;
-    		case 26: strName = "Gyroscope"; break;
+    		case 22: strName = "Light Sensor"; break;    		
+    		case 23: strName = "Front & Rear Camera"; break;
+    		case 24: strName = "Memory Information"; break;
+    		case 25: strName = "eMMC Size"; break;
+    		case 26: strName = "Compass"; break;
+    		case 27: strName = "Gyroscope"; break;
 //    		case 27: strName = "Suspend"; break;
 //    		case 28: strName = "3G"; break; //removed @ 03/23/2012
     		default: strName = "Unknown";break;	
@@ -225,14 +226,13 @@ public class getResults extends Activity {
 
 	@Override
   	protected void onPause() {
-    super.onPause();
-    unregisterReceiver(mBatInfoReceiver);
+		super.onPause();
+		unregisterReceiver(mBatInfoReceiver);
   }
 
     
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		// TODO Auto-generated method stub
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 			return true;
 		}
@@ -242,8 +242,7 @@ public class getResults extends Activity {
 	
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        super.onCreateOptionsMenu(menu);
-//        menu.add(0, 0, 0, "Wi-Fi Setting");        
+        super.onCreateOptionsMenu(menu);      
         menu.add(0, 1, 1, "退出");        
         return true;
     }
