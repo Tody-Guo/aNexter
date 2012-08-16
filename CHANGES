@@ -1,6 +1,7 @@
 v1.2.3 @ 2012/08/16
 *) add light Sensor function
 *) fix U Disk layout issue
+*) change standard lux value to 800lx
 
 v1.2.2
 *) add new Page for U Disk test, function as Sdcard R/W Test, remove iFilemanager

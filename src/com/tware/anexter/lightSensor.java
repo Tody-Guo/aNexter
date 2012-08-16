@@ -21,11 +21,11 @@ public class lightSensor extends Activity implements SensorEventListener{
 	private Button bBlue;
 	private String LOG;
 
+	final private float CONSTLx = 800; /* define standard lux for testing */
 	private SensorManager sm;
 	private Sensor sensors;
 	private TextView lightV;
-
-
+	
 	/** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -114,8 +114,8 @@ public class lightSensor extends Activity implements SensorEventListener{
 
 	@Override
 	public void onSensorChanged(SensorEvent event) {
-		lightV.setText("流明值: " + event.values[0] + " lx");
-		if ( Float.compare(event.values[0], (float)600) >= 0 )
+		lightV.setText("流明值: " + event.values[0] + " lx(Pass >800 lx)");
+		if ( Float.compare(event.values[0], CONSTLx) >= 0 )
 		{
 			sm.unregisterListener(this);  /* stop Sensor changed */
     		Intent i = new Intent();
