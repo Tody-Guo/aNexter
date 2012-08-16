@@ -140,6 +140,8 @@ public class mp3 extends Activity {
 				if (bPlay.getText().equals("停止播放"))
                 	{ bPlay.setText("开始播放"); mPlayer.stop(); return ;}
                 
+				playList.clear();
+				
             	Toast.makeText(getApplicationContext(), "开始搜索SD卡中的音乐文件，请稍后……",
             			Toast.LENGTH_SHORT).show();
                 if (findMusic(sdPath))

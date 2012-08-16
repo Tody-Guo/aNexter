@@ -52,6 +52,14 @@
             android:layout_centerVertical="true"
             android:text="打开蓝牙设置" />
 
+        <TextView
+            android:id="@+id/btCntView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btn_bluetooth"
+            android:layout_alignLeft="@+id/btn_bluetooth"
+            android:text="等待搜到蓝牙设备……" />
+
     </RelativeLayout>
 
 </LinearLayout>
