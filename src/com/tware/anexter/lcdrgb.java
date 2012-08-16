@@ -115,9 +115,8 @@ public class lcdrgb extends Activity {
         });
         
         LOG = this.getIntent().getStringExtra("LOG");
-//        Toast.makeText(getApplicationContext(), LOG, Toast.LENGTH_SHORT).show();
       
-        timer.schedule(task, 1000,3000);  // start timer, 3s per time.
+        timer.schedule(task, 1000, 3000);  // start timer, 3s per time.
         
 		if (mediaplay == null)
 		{
@@ -203,16 +202,7 @@ public class lcdrgb extends Activity {
     @Override
     public void onStop()
     {
-    	super.onStop();
-    	
-		if ( timer != null )
-		{
-	    	timer.cancel();
-	    	timer = null;
-	    	Log.w("aNexter", "LCD Timer canceled from onStop()............");
-			return;
-		}
-		
+    	super.onStop();		
 		if ( mediaplay != null)
 		{
 			mediaplay.release();

@@ -47,20 +47,29 @@
             android:progress="14" />
 
         <Button
-            android:id="@+id/btn_ifileUdisk"
+            android:id="@+id/btn_hdmisw"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="打开文件管理器" />
+            android:text="播放HDMI视频" />
 
-        <Button
-            android:id="@+id/btn_hdmisw"
+        <VideoView
+            android:id="@+id/videoView_HDMI"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/btn_ifileUdisk"
-            android:layout_below="@+id/btn_ifileUdisk"
-            android:text="HDMI切换测试" />
+            android:layout_above="@+id/progressBar1"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/btn_pass" android:visibility="invisible"/>
+
+        <Button
+            android:id="@+id/btn_hdmiSW"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btn_hdmisw"
+            android:layout_alignLeft="@+id/btn_hdmisw"
+            android:text="切换至HDMI设备" />
 
     </RelativeLayout>
 

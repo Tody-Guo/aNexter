@@ -1,3 +1,12 @@
+v1.2.2
+*) add new Page for U Disk test, function as Sdcard R/W Test, remove iFilemanager
+*) add HDMI video test, app can search Mp4 or 3gp video files random
+*) fix LCD RGB Test hang up after suspend
+
+v1.2.0 @ 2012/08/15
+*) change WiFi auto-connection function
+*) chnage Bluetooth auto searching function
+
 v1.1.0 @ 2012/05/09
 *) Changed some test items positions(G-sensor, mp3, record, vibrator, sdrw, brightness, mac, image, hdmi)
 *) Changed xml progress

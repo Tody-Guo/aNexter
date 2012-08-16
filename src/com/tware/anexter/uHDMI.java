@@ -1,6 +1,11 @@
 package com.tware.anexter;
 
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -12,21 +17,28 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.MediaController;
 import android.widget.Toast;
+import android.widget.VideoView;
 
-public class uHDMI extends Activity {
+public class uHDMI extends Activity{
 	private Button bPass;
 	private Button bFail;
 	private Button bNa;
 	private String LOG;
 	private MediaPlayer mediaplay = null;
+	private VideoView videoP;
+	private Button btnSW;
+	private Button hdmiswitch;
+	
+	private List<String> playList = new ArrayList<String>();
 	
 	/** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.uhdmi);
-        this.setTitle("aNexter - U 盘与HDMI测试");
+        this.setTitle("aNexter - HDMI测试");
         
         bPass = (Button)findViewById(R.id.btn_pass);
         bPass.setEnabled(false);
@@ -42,43 +54,38 @@ public class uHDMI extends Activity {
         	}
         });
         
+        videoP = (VideoView)findViewById(R.id.videoView_HDMI);
+        videoP.setVisibility(View.INVISIBLE);
         
-        
-        Button iFile = (Button)findViewById(R.id.btn_ifileUdisk);
-        iFile.setOnClickListener(new OnClickListener(){
-        	@Override
-        	public void onClick(View v)
-        	{
-    			try{
-    				Intent i = new Intent();
-   					i.setClassName("com.oem.iFileManager", "com.oem.iFileManager.iFileManager");
-    		    	startActivity(i);
-    		    	bPass.setEnabled(true);
-    		    	bFail.setEnabled(true);
-    			}catch(ActivityNotFoundException e)
-    			{
-    				try{
-    					Intent i = new Intent();
-    					i.setClassName("com.fb.FileBrower", "com.fb.FileBrower.FileBrower");
-    					startActivity(i);
-        		    	bFail.setEnabled(true);
-        		    	bPass.setEnabled(true);
-    				}catch(ActivityNotFoundException e1){
-    					Toast.makeText(getApplicationContext(),
-    							"Open Filemanager Failed!",
-    							Toast.LENGTH_SHORT)
-    							.show();
-    					return ;
-    				}
-    			}
-        	}
-        });
-        
-        Button hdmiswitch = (Button)findViewById(R.id.btn_hdmisw);
+        hdmiswitch = (Button)findViewById(R.id.btn_hdmisw);
         hdmiswitch.setOnClickListener(new OnClickListener(){
         	@Override
         	public void onClick(View v)
         	{    			
+				playList.clear();
+        		if (!findVideo("/sdcard"))
+        		{
+        			Toast.makeText(getApplicationContext(), "未找到视频文件", Toast.LENGTH_LONG).show();
+        			return ;
+        		}
+            	Random  rand = new Random(System.currentTimeMillis());
+
+        		videoP.setVisibility(View.VISIBLE);
+        		videoP.setVideoPath(playList.get(rand.nextInt(playList.size())));
+        		videoP.setMediaController(new MediaController(uHDMI.this));
+        		videoP.requestFocus();
+        		videoP.start();
+        		bPass.setEnabled(true);
+        		btnSW.setVisibility(View.INVISIBLE);
+        	}
+        });
+        
+        
+        btnSW = (Button)findViewById(R.id.btn_hdmiSW);
+        btnSW.setOnClickListener(new OnClickListener(){
+        	@Override
+        	public void onClick(View v)
+        	{
         		try{
         			Intent i = new Intent();
         			i.setClassName("com.amlogic.HdmiSwitch", "com.amlogic.HdmiSwitch.HdmiSwitch");
@@ -95,7 +102,6 @@ public class uHDMI extends Activity {
         });
         
         bFail = (Button)findViewById(R.id.btn_fail);
-        bFail.setEnabled(false);
         bFail.setOnClickListener(new OnClickListener(){
         	@Override
     		public void onClick(View v)
@@ -124,9 +130,45 @@ public class uHDMI extends Activity {
         });
 */        
         LOG = this.getIntent().getStringExtra("LOG");
-//        Toast.makeText(getApplicationContext(), LOG, Toast.LENGTH_SHORT).show();
     }
     
+    
+    public boolean findVideo(String sdPath1)
+    {
+    	File f = new File(sdPath1);
+    	if (!f.exists()) return false;
+    	    	
+    	try{
+    		File[] fl = f.listFiles();
+    		if (fl.length == 0 )
+    		{
+    			return false;
+    		}
+    	
+    		for (int i = 0; i< fl.length; i++)
+    		{
+    			if (fl[i].isDirectory())   findVideo(fl[i].getAbsolutePath());
+    			if (	fl[i].toString().toLowerCase().endsWith(".mp4") 
+    				||	fl[i].toString().toLowerCase().endsWith(".3gp"))
+    			{
+    			playList.add(fl[i].getAbsoluteFile().toString());
+    			}
+    		}
+    	}
+    	catch (Exception e)
+    	{
+    		return false;
+    	}
+    	
+    	if (!playList.isEmpty())
+    	{
+    		return true;
+    	}
+    	else
+    	{
+    		return false;
+    	}
+    }
     
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -156,14 +198,30 @@ public class uHDMI extends Activity {
 	{
 		super.onDestroy();
 		if (mediaplay != null) mediaplay.release();
-	}
+	}	
 	
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		// TODO Auto-generated method stub
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			videoP.stopPlayback();
+			videoP.setVisibility(View.INVISIBLE);
+			
+    		try{
+    			Intent i = new Intent();
+    			i.setClassName("com.amlogic.HdmiSwitch", "com.amlogic.HdmiSwitch.HdmiSwitch");
+    			startActivity(i);
+    		}catch(ActivityNotFoundException e)
+    		{
+    			Toast.makeText(getApplicationContext(),
+					"Open HdmiSwitch Failed!",
+					Toast.LENGTH_SHORT)
+					.show();
+			return false;
+    		}
+			
 			return true;
 		}
 		return super.onKeyDown(keyCode, event);
 	}
+	
 }

@@ -1,18 +1,24 @@
 package com.tware.anexter;
 
 
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.ConnectivityManager;
+import android.net.wifi.ScanResult;
+import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -28,6 +34,9 @@ public class wifiTest extends Activity {
 	private WifiInfo wifiInfo;
 	private String LOG;
 	private ConnectivityManager con;
+	private String TAG = "WiFiTest";
+	private String wifiName = "Tablet"; 
+	private Boolean isSet = false;
 
 
 	/** Called when the activity is first created. */
@@ -40,7 +49,11 @@ public class wifiTest extends Activity {
         mWifi = (WifiManager)getSystemService(Context.WIFI_SERVICE);
 		con=(ConnectivityManager)getSystemService(Activity.CONNECTIVITY_SERVICE);
 
-        timer.schedule(task, 2500, 1000);
+		IntentFilter intentFilter = new IntentFilter();
+		intentFilter.addAction("android.net.wifi.SCAN_RESULTS");
+		registerReceiver(scanResultsReceiver, intentFilter);
+		
+        timer.schedule(task, 1000, 2000);
 
         bPass = (Button)findViewById(R.id.btn_pass);       
         bPass.setEnabled(false);
@@ -69,8 +82,11 @@ public class wifiTest extends Activity {
         	@Override
     		public void onClick(View v)
         	{
-	        	timer.cancel();
-        		timer = null;
+	        	if (timer != null)
+	        	{
+	        		timer.cancel();
+	        		timer = null;
+	        	}
         		Intent i = new Intent();
         		i.putExtra("LOG", LOG + "FAIL|");
         		i.setClass(wifiTest.this , getResults.class);
@@ -93,7 +109,6 @@ public class wifiTest extends Activity {
 
 		@Override
 		public void run() {
-			// TODO Auto-generated method stub
 			uHandler.post(new Runnable() {
 				@Override
 				public void run() {
@@ -102,11 +117,15 @@ public class wifiTest extends Activity {
 		        	{
 		        		mWifi.setWifiEnabled(true);
 		        	}
+		        		mWifi.startScan();
 					if(con.getNetworkInfo(ConnectivityManager.TYPE_WIFI).isConnected())
 					{
-			        	timer.cancel();
-		        		timer = null;
-		        		Intent i = new Intent();
+			        	if (timer != null)
+			        	{
+			        		timer.cancel();
+			        		timer = null;
+			        	}
+			        	Intent i = new Intent();
 		        		i.putExtra("LOG", LOG + wifiInfo.getMacAddress().toUpperCase() + "|");
 		        		i.setClass(wifiTest.this , imageMcu.class);
 		        		startActivity(i);
@@ -117,10 +136,79 @@ public class wifiTest extends Activity {
 		}
 
 	};
+
+	private BroadcastReceiver scanResultsReceiver = new BroadcastReceiver(){
+		@Override
+		public void onReceive(Context arg0, Intent intent) {
+			String action = intent.getAction();
+
+			if (action.equals("android.net.wifi.SCAN_RESULTS") && ! isSet)
+			{
+				Log.d(TAG, "startScan() completed...");
+				List<ScanResult> sRet = mWifi.getScanResults();
+				for (int i=0; i<sRet.size(); i++)
+				{
+					ScanResult retS = sRet.get(i); 
+					Log.d(TAG, "WiFi: " + retS.SSID +" " + retS.BSSID);
+
+					if (retS.SSID.equalsIgnoreCase(wifiName))  /* Here defined SSID to connected , default is "Tablet"*/
+					{
+						Log.e(TAG, "Found: " + retS.SSID +" " + retS.BSSID + "\n");
+
+						WifiConfiguration wc = new WifiConfiguration();
+						wc.allowedAuthAlgorithms.clear();
+						wc.allowedGroupCiphers.clear();
+						wc.allowedKeyManagement.clear();
+						wc.allowedProtocols.clear();
+						wc.allowedPairwiseCiphers.clear();
+
+						wc.SSID = "\""+retS.SSID+"\"";
+						wc.wepKeys[0]="";
+						wc.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
+						wc.wepTxKeyIndex = 0;
+
+						int netID = mWifi.addNetwork(wc); // add network
+						Log.d(TAG, "addNetwork: "+ Integer.toString(netID));
+
+						if (mWifi.saveConfiguration()) /*Save it for later use*/
+						{
+							Log.d(TAG, "saveConfiguration ok");
+						}else{
+							Log.d(TAG, "saveConfiguration Failed");
+						}
+
+						if(mWifi.enableNetwork(netID, true)) // enable network
+						{
+							Log.d(TAG, "enableNetwork: true\n");
+						}else
+						{
+							Log.d(TAG, "enableNetwork: false\n");
+						}
+						isSet = true;  /* if found the SSID then ignore the actions  */
+					}
+				}
+			}
+		}
+
+	};
+	
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		IntentFilter intentFilter = new IntentFilter();
+		intentFilter.addAction("android.net.wifi.SCAN_RESULTS");
+		registerReceiver(scanResultsReceiver, intentFilter);
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		unregisterReceiver(scanResultsReceiver);
+	}
 	
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		// TODO Auto-generated method stub
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 			return true;
 		}

@@ -73,7 +73,7 @@ public class sdcardRW extends Activity {
         	        
                 		f.createNewFile();
                 		FileOutputStream wf = new FileOutputStream(f);
-                		wf.write("\nSD_Test_String_from_aNexter\nWritten By Tody \n(c) 2012 T-ware Inc.\n".getBytes()); // write string to file...
+                		wf.write("\r\nSD_Test_String_from_aNexter\r\nWritten By Tody \r\n(c) 2012 T-ware Inc.\r\n".getBytes()); // write string to file...
                 		wf.flush();
                 		wf.close();
                 		f.delete();  // delete file

@@ -49,7 +49,7 @@ public class ANexterActivity extends Activity{
         		Intent i = new Intent();
         		i.putExtra("LOG", "|");
         		i.setClass(ANexterActivity.this , virtualKeys.class);
-//        		i.setClass(ANexterActivity.this, lcdrgb.class);  // debug...
+//        		i.setClass(ANexterActivity.this, uHDMI.class);  // debug...
          		startActivity(i);
         		ANexterActivity.this.finish();
         	}
@@ -133,7 +133,6 @@ public class ANexterActivity extends Activity{
     
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		// TODO Auto-generated method stub
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 			return true;
 		}
