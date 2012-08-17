@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.tware.anexter"
     android:versionCode="2"
-    android:versionName="1.2.3" >
+    android:versionName="1.2.4" >
 
     <uses-sdk android:minSdkVersion="7" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -115,6 +115,7 @@
          <activity
             android:name=".uHDMI"
             android:label="@string/app_name" 
+            android:screenOrientation="landscape"
             android:configChanges="orientation">
          </activity>  
 

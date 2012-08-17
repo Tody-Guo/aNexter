@@ -49,7 +49,7 @@ public class ANexterActivity extends Activity{
         		Intent i = new Intent();
         		i.putExtra("LOG", "|");
         		i.setClass(ANexterActivity.this , virtualKeys.class);
-//        		i.setClass(ANexterActivity.this, bluetooth.class);  // debug...
+//        		i.setClass(ANexterActivity.this, uHDMI.class);  // debug...
          		startActivity(i);
         		ANexterActivity.this.finish();
         	}

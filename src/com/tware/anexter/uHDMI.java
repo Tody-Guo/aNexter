@@ -10,7 +10,9 @@ import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.media.MediaPlayer.OnCompletionListener;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,7 +34,7 @@ public class uHDMI extends Activity{
 	private Button hdmiswitch;
 	
 	private List<String> playList = new ArrayList<String>();
-	
+	private Random  rand ;
 	/** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,11 @@ public class uHDMI extends Activity{
         	@Override
 			public void onClick(View v)
         	{
+        		if (mediaplay != null)
+        		{
+        			mediaplay.release();
+        			mediaplay = null;
+        		}
         		Intent i = new Intent();
         		i.putExtra("LOG", LOG + "PASS|");
         		i.setClass(uHDMI.this , docking.class);
@@ -63,23 +70,31 @@ public class uHDMI extends Activity{
         	public void onClick(View v)
         	{    			
 				playList.clear();
-        		if (!findVideo("/sdcard"))
+        		if (!findVideo("/mnt"))
         		{
         			Toast.makeText(getApplicationContext(), "未找到视频文件", Toast.LENGTH_LONG).show();
         			return ;
         		}
-            	Random  rand = new Random(System.currentTimeMillis());
+            	rand = new Random(System.currentTimeMillis());
 
         		videoP.setVisibility(View.VISIBLE);
         		videoP.setVideoPath(playList.get(rand.nextInt(playList.size())));
         		videoP.setMediaController(new MediaController(uHDMI.this));
+        		videoP.setOnCompletionListener(new OnCompletionListener(){
+					@Override
+					public void onCompletion(MediaPlayer mp) {
+						Log.e("HDMI", "Play Completion, now rePlay it!");
+		        		videoP.setVideoPath(playList.get(rand.nextInt(playList.size())));
+		        		videoP.requestFocus();
+		        		videoP.start();
+					}
+        		});
         		videoP.requestFocus();
         		videoP.start();
         		bPass.setEnabled(true);
         		btnSW.setVisibility(View.INVISIBLE);
         	}
         });
-        
         
         btnSW = (Button)findViewById(R.id.btn_hdmiSW);
         btnSW.setOnClickListener(new OnClickListener(){
@@ -106,6 +121,11 @@ public class uHDMI extends Activity{
         	@Override
     		public void onClick(View v)
         	{
+        		if (mediaplay != null)
+        		{
+        			mediaplay.release();
+        			mediaplay = null;
+        		}
         		Intent i = new Intent();
         		i.putExtra("LOG", LOG + "FAIL|");
         		i.setClass(uHDMI.this , getResults.class);
@@ -151,7 +171,7 @@ public class uHDMI extends Activity{
     			if (	fl[i].toString().toLowerCase().endsWith(".mp4") 
     				||	fl[i].toString().toLowerCase().endsWith(".3gp"))
     			{
-    			playList.add(fl[i].getAbsoluteFile().toString());
+    				playList.add(fl[i].getAbsoluteFile().toString());
     			}
     		}
     	}
