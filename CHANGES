@@ -1,3 +1,9 @@
+v1.2.4.2 @ 2012/10/30
+*) bug fix Bluetooth Crash Issue
+
+v1.2.4.1 @ 2012/10/30
+*) bug fix HDMI Crash Issue
+
 v1.2.4 @ 2012/08/17
 *) change HDMI search Path to /mnt and add HDMI loop function
 *) fix HDMI Layout

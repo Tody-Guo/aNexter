@@ -90,11 +90,17 @@ public class bluetooth extends Activity {
         	@Override
         	public void onClick(View v)
         	{
-        		btAdapter.startDiscovery();
-        		foundBTNum = 0;
-        		Toast.makeText(getApplicationContext(),
-						"开始重新搜索蓝牙设备……",
-						Toast.LENGTH_SHORT).show(); 			
+        		if (btAdapter!= null){
+        			btAdapter.startDiscovery();
+        			foundBTNum = 0;
+        			Toast.makeText(getApplicationContext(),
+        					"开始重新搜索蓝牙设备……",
+        					Toast.LENGTH_SHORT).show();
+        		}else{
+            		Toast.makeText(getApplicationContext(),
+    						"本机没有蓝牙模组存在……",
+    						Toast.LENGTH_SHORT).show();        			
+        		}
         	}
         });       
         
@@ -153,6 +159,8 @@ public class bluetooth extends Activity {
     			@Override
     			public void run()
     			{
+    				if (btAdapter == null) return ;
+    				
     				if (!btAdapter.isEnabled())
     				{
     					btAdapter.enable();
@@ -176,7 +184,9 @@ public class bluetooth extends Activity {
 		IntentFilter intentFilter = new IntentFilter();
 		intentFilter.addAction("android.bluetooth.device.action.FOUND");
 		registerReceiver(bluetoothReciever, intentFilter);
-		btAdapter.startDiscovery();
+		if (btAdapter!= null){
+			btAdapter.startDiscovery();
+		}
 	}
     
 	@Override
