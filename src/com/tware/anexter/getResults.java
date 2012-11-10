@@ -70,13 +70,13 @@ public class getResults extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.results);
-        this.setTitle("aNexter - 测试结果汇总");
+        this.setTitle("aNexter - Test Results");
         
         bFail = (Button)findViewById(R.id.btn_fail);
         bNa = (Button)findViewById(R.id.btn_na);
         bPass = (Button)findViewById(R.id.btn_pass); 
         
-        bPass.setText("上传测试记录");
+        bPass.setText("Upload Logs");
         bPass.setOnClickListener(new OnClickListener(){
         	@Override
         	public void onClick(View v)
@@ -122,8 +122,8 @@ public class getResults extends Activity {
     		{
     			bPass.setEnabled(false);
         		new AlertDialog.Builder(getResults.this)
-    				.setTitle("警告")
-    				.setMessage("没有保存测试记录!")
+    				.setTitle("Warning")
+    				.setMessage("No Test logs was saved!")
     				.setPositiveButton("Ok", null).show();
     		}
     	}
@@ -133,8 +133,8 @@ public class getResults extends Activity {
     		bPass.setEnabled(false);
     		new AlertDialog.Builder(getResults.this)
     			.setIcon(R.drawable.icon)
-				.setTitle("警告")
-				.setMessage("请确认测试失败的项目!")
+				.setTitle("Warning")
+				.setMessage("Please check failed item again!")
 				.setPositiveButton("Ok", null).show();			
 
     	}
@@ -159,8 +159,8 @@ public class getResults extends Activity {
     			naNum ++;    			
     		}   		
     	}
-    	resFail.append("\n\n失败条数: " + failNum);
-    	resNa.append("\n\n未测条数: " + naNum);
+    	resFail.append("\n\nFail Amount: " + failNum);
+    	resNa.append("\n\nN/A Amount: " + naNum);
     	
     	return true;
     }
@@ -243,7 +243,7 @@ public class getResults extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);      
-        menu.add(0, 1, 1, "退出");        
+        menu.add(0, 1, 1, "Exit");  
         return true;
     }
     

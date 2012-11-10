@@ -30,7 +30,7 @@ public class sdcardRW extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sdcardrw);
-        this.setTitle("aNexter - SD卡写读删测试");
+        this.setTitle("aNexter - SD Card R/W Test");
         
         Button rwTest = (Button)findViewById(R.id.btn_sd);
         rwTest.setOnClickListener(new OnClickListener(){

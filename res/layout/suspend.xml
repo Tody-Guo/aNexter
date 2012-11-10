@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="按电源按钮开始休眠30秒" />
+            android:text="Press POWER button and suspend for 30s" />
 
         <ProgressBar
             android:id="@+id/progressBar1"

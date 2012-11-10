@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="打开文件管理器" />
+            android:text="Open Filemanager" />
 
         <Button
             android:id="@+id/btn_sdtopc"
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/btn_dockingusb"
             android:layout_below="@+id/btn_dockingusb"
-            android:text="打开USB连接电脑" />
+            android:text="Enable USB" />
 
     </RelativeLayout>
 

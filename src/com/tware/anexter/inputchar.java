@@ -26,7 +26,7 @@ public class inputchar extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.inputchar);
-        this.setTitle("aNexter - 输入字符测试");
+        this.setTitle("aNexter - Touchpanel Input char Test");
         
         imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE); 
         
@@ -45,14 +45,14 @@ public class inputchar extends Activity {
         			inputchar.this.finish();
         		}else{
         			Toast.makeText(getApplicationContext(),
-        					"请输入大于4个以上的字符或单个字符连续出现",
+        					"Input large than 4 chars and can not be duplicated",
         					Toast.LENGTH_SHORT).show();
         		}
         	}
         });
         
         editBox = (EditText)findViewById(R.id.edit_input);
-        editBox.setHint("这里输入字符");
+        editBox.setHint("Here input");
 
         bFail = (Button)findViewById(R.id.btn_fail);
         bFail.setOnClickListener(new OnClickListener(){

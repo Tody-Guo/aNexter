@@ -31,7 +31,7 @@ public class lightSensor extends Activity implements SensorEventListener{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lightsensor);
-        this.setTitle("aNexter - 光感测试");
+        this.setTitle("aNexter - Light Sensor Test");
 
     	lightV = (TextView)findViewById(R.id.lightView);
 
@@ -114,7 +114,7 @@ public class lightSensor extends Activity implements SensorEventListener{
 
 	@Override
 	public void onSensorChanged(SensorEvent event) {
-		lightV.setText("流明值: " + event.values[0] + " lx(Pass >800 lx)");
+		lightV.setText("Lumen: " + event.values[0] + " lx(Pass >800 lx)");
 		if ( Float.compare(event.values[0], CONSTLx) >= 0 )
 		{
 			sm.unregisterListener(this);  /* stop Sensor changed */

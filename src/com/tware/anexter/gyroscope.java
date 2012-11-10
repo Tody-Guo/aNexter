@@ -58,7 +58,7 @@ public class gyroscope extends Activity implements SensorEventListener{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gyro);
-        this.setTitle("aNexter - Gyroscope 测试");
+        this.setTitle("aNexter - Gyroscope Test");
         
         vX = (TextView)findViewById(R.id.v_x);
         vY = (TextView)findViewById(R.id.v_y);
@@ -171,7 +171,7 @@ public class gyroscope extends Activity implements SensorEventListener{
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
-        menu.add(0, 0, 0, "打开GyroScope测试");
+        menu.add(0, 0, 0, "Open GyroScope");
         return true;
     }
     

@@ -23,7 +23,7 @@ public class vibrator extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vibrator);
-        this.setTitle("aNexter - 振动器测试");
+        this.setTitle("aNexter - Vibrator Test");
         
         bPass = (Button)findViewById(R.id.btn_pass);
         bPass.setEnabled(false);

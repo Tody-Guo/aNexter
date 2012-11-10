@@ -16,7 +16,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/TextView01"
-            android:text="上传测试结果"
+            android:text="Upload Logs"
             android:width="100dp" />
 
         <Button
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/btn_na"
-            android:text="失败项目"
+            android:text="Fail Items"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -70,7 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/textView1"
             android:layout_centerHorizontal="true"
-            android:text="未测项目"
+            android:text="N/A Items"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView

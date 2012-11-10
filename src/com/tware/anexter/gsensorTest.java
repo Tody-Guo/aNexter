@@ -25,7 +25,7 @@ public class gsensorTest extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gsensor);
-        this.setTitle("aNexter - G-Sensor 测试");
+        this.setTitle("aNexter - G-Sensor Test");
       
         bPass = (Button)findViewById(R.id.btn_pass);
         bPass.setEnabled(false);

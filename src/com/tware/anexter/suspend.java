@@ -27,7 +27,7 @@ public class suspend extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.suspend);
-        this.setTitle("aNexter - 休眠测试");
+        this.setTitle("aNexter - Suspend Test");
         
         bPass = (Button)findViewById(R.id.btn_pass); 
         bPass.setEnabled(false);

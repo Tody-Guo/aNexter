@@ -35,7 +35,7 @@ public class mp3 extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mp3);
-        this.setTitle("aNexter - MP3/MP4 耳机 测试");
+        this.setTitle("aNexter - Headphone & Speaker Test");
         
         Button iFile = (Button)findViewById(R.id.btn_ifile);
         iFile.setOnClickListener(new OnClickListener(){
@@ -87,8 +87,8 @@ public class mp3 extends Activity {
 //        		i.setClass(mp3.this , brightness.class);  //2012-04-03: removed
         		i.setClass(mp3.this , recording.class);
         		startActivity(i);
-        		if (bPlay.getText().equals("停止播放") || 
-        			bPlay.getText().equals("开始播放"))
+        		if (bPlay.getText().equals("STOP") || 
+        			bPlay.getText().equals("START"))
         		{
         			mPlayer.stop(); mPlayer.release();
         		}
@@ -110,8 +110,8 @@ public class mp3 extends Activity {
         		i.putExtra("LOG", LOG + "FAIL|");
         		i.setClass(mp3.this , getResults.class);
         		startActivity(i);
-        		if (bPlay.getText().equals("停止播放") || 
-            			bPlay.getText().equals("开始播放"))
+        		if (bPlay.getText().equals("STOP") || 
+            			bPlay.getText().equals("START"))
             		{
             			mPlayer.stop(); mPlayer.release();
             		}
@@ -133,26 +133,26 @@ public class mp3 extends Activity {
                 if (!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED))
                 {
                 	Toast.makeText(getApplicationContext(), 
-                			"请确认SD卡是否已插入机台！", Toast.LENGTH_SHORT).show();
+                			"Check SD is inside!", Toast.LENGTH_SHORT).show();
                 	return ;
                 }
 				
-				if (bPlay.getText().equals("停止播放"))
-                	{ bPlay.setText("开始播放"); mPlayer.stop(); return ;}
+				if (bPlay.getText().equals("STOP"))
+                	{ bPlay.setText("START"); mPlayer.stop(); return ;}
                 
 				playList.clear();
 				
-            	Toast.makeText(getApplicationContext(), "开始搜索SD卡中的音乐文件，请稍后……",
+            	Toast.makeText(getApplicationContext(), "Start & Play MP3 files in SD Card, please wait...",
             			Toast.LENGTH_SHORT).show();
                 if (findMusic(sdPath))
                 {
-                	bPlay.setText("停止播放");
+                	bPlay.setText("STOP");
                 	Random  rand = new Random(System.currentTimeMillis());
                 	try {
                 		int id = rand.nextInt(playList.size());
                 		mPlayer.reset();
 						Toast.makeText(getApplicationContext(), 
-								"正在播放: "+ playList.get(id), 
+								"Now Playing: "+ playList.get(id), 
 								Toast.LENGTH_SHORT).show();
                 		mPlayer.setDataSource(playList.get(id));
 						mPlayer.prepare();
@@ -171,7 +171,7 @@ public class mp3 extends Activity {
 					}
                 }else
                 {
-                	Toast.makeText(getApplicationContext(), "没有找到SD卡中的音乐",
+                	Toast.makeText(getApplicationContext(), "No MP3 Files in SD card.",
                 			Toast.LENGTH_SHORT).show();
                 }
         	}

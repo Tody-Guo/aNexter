@@ -40,7 +40,7 @@ public class uHDMI extends Activity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.uhdmi);
-        this.setTitle("aNexter - HDMI测试");
+        this.setTitle("aNexter - HDMI Test");
         
         bPass = (Button)findViewById(R.id.btn_pass);
         bPass.setEnabled(false);
@@ -72,7 +72,7 @@ public class uHDMI extends Activity{
 				playList.clear();
         		if (!findVideo("/mnt"))
         		{
-        			Toast.makeText(getApplicationContext(), "未找到视频文件", Toast.LENGTH_LONG).show();
+        			Toast.makeText(getApplicationContext(), "NO MP4 VIDEO(S) FOUND", Toast.LENGTH_LONG).show();
         			return ;
         		}
             	rand = new Random(System.currentTimeMillis());

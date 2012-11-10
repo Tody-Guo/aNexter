@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="U盘测试" />
+            android:text="Pen-Drive Test" />
 
     </RelativeLayout>
 

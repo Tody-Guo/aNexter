@@ -34,7 +34,7 @@ public class uDisk extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.udisk);
-        this.setTitle("aNexter - U 盘测试");
+        this.setTitle("aNexter - PEN-DRIVE Test");
         
         bPass = (Button)findViewById(R.id.btn_pass);
         bPass.setEnabled(false);
@@ -58,7 +58,7 @@ public class uDisk extends Activity {
         		uList.clear();
         		if (!getUDiskDirs())
         		{
-					Toast.makeText(getApplicationContext(), "找不到U盘装置!", Toast.LENGTH_LONG).show();							
+					Toast.makeText(getApplicationContext(), "No Pen-Drive Found!", Toast.LENGTH_LONG).show();							
 					bPass.setEnabled(false);
 					return ;
         		}
@@ -83,7 +83,7 @@ public class uDisk extends Activity {
 		        		
             		}catch (IOException e) {
 						e.printStackTrace();
-						Toast.makeText(getApplicationContext(), "U盘读写失败!", Toast.LENGTH_LONG).show();							
+						Toast.makeText(getApplicationContext(), "Pen-Drive R/W Failed!", Toast.LENGTH_LONG).show();							
 						bPass.setEnabled(false);
             		}
         		}

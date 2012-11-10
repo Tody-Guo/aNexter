@@ -31,7 +31,7 @@ public class imageMcu extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.imagemcu);
-        this.setTitle("aNexter - Image & MCU 版本检查");
+        this.setTitle("aNexter - Image & MCU Version Check");
         
         bPass = (Button)findViewById(R.id.btn_pass);       
         bPass.setOnClickListener(new OnClickListener(){

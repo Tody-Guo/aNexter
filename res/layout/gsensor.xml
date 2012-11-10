@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="屏幕旋转开关(默认为关闭)" />
+            android:text="Screen Rotation(Default: OFF)" />
 
         <ProgressBar
             android:id="@+id/progressBar1"
@@ -57,7 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView1"
-            android:layout_centerHorizontal="true" android:textOff="屏幕旋转 - 关" android:textOn="屏幕旋转 - 开"/>
+            android:layout_centerHorizontal="true" android:textOff="Screen Rotation - OFF" android:textOn="Screen Rotation - ON"/>
 
     </RelativeLayout>
 

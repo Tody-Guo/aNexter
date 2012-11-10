@@ -28,7 +28,7 @@ public class wifiBtMac extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.wifibtmac);
-        this.setTitle("aNexter - 无线与蓝牙地址检查");
+        this.setTitle("aNexter - WiFi & Bluetooth MAC Check");
         
         bPass = (Button)findViewById(R.id.btn_pass);       
         bPass.setOnClickListener(new OnClickListener(){
@@ -74,7 +74,7 @@ public class wifiBtMac extends Activity {
         }
         
         mac.setTextSize(38);
-        mac.setText("无线MAC:  "+ WifiMac.toUpperCase() + "\n蓝牙MAC:  " + btMac);
+        mac.setText("WIFI MAC:  "+ WifiMac.toUpperCase() + "\nBluetooth MAC:  " + btMac);
      
         bFail = (Button)findViewById(R.id.btn_fail);
         bFail.setOnClickListener(new OnClickListener(){

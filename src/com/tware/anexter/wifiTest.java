@@ -44,7 +44,7 @@ public class wifiTest extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.wifi);
-        this.setTitle("aNexter - 无线连接测试");
+        this.setTitle("aNexter - WiFi Function Test");
 
         mWifi = (WifiManager)getSystemService(Context.WIFI_SERVICE);
 		con=(ConnectivityManager)getSystemService(Activity.CONNECTIVITY_SERVICE);

@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="打开蓝牙设置" />
+            android:text="Open Bluetooth Setting" />
 
         <TextView
             android:id="@+id/btCntView"
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/btn_bluetooth"
             android:layout_alignLeft="@+id/btn_bluetooth"
-            android:text="等待搜到蓝牙设备……" />
+            android:text="Seaching nearby bluetooth devices……" />
 
     </RelativeLayout>
 

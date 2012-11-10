@@ -35,7 +35,7 @@
             android:layout_alignParentTop="true"
             android:text="N/A"
             android:width="100dp" />
-
+
         <TextView
             android:id="@+id/rgb_chk"
             android:layout_width="wrap_content"
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="重测一次" />
+            android:text="Retry" />
 
     </RelativeLayout>
 

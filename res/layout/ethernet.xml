@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="打开以太网设置" />
+            android:text="Open Ethernet Setting" />
 
         <Button
             android:id="@+id/button2"
@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/button1"
             android:layout_below="@+id/button1"
-            android:text="打开网站" />
+            android:text="Open website" />
     </RelativeLayout>
 
 </LinearLayout>

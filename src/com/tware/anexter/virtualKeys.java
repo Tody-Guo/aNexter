@@ -31,7 +31,7 @@ public class virtualKeys extends Activity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.virtualkey);
-        this.setTitle("aNexter - 虚拟按键功能测试");
+        this.setTitle("aNexter - Virtual Keys");
         
         bPass = (Button)findViewById(R.id.btn_pass);       
         bPass.setOnClickListener(new OnClickListener(){

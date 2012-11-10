@@ -22,7 +22,7 @@ public class sdToPc extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sdpc);
-        this.setTitle("aNexter - 底座USB 及  连接电脑测试");
+        this.setTitle("aNexter - Connect to PC Test");
         
         bPass = (Button)findViewById(R.id.btn_pass);
 //        bPass.setEnabled(false);
@@ -66,7 +66,7 @@ public class sdToPc extends Activity {
         	public void onClick(View v)
         	{       		
         		Toast.makeText(getApplicationContext(),
-        						"请插入MicroUSB线连接至电脑，检查电脑中是否能查看SD卡中的内容", 
+        						"Please insert Micro-to-USB cable to PC, and check SD contents in PC", 
         						Toast.LENGTH_SHORT).show();
         	}
         }); 
