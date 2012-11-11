@@ -29,7 +29,7 @@ public class g3Test extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.g3);
-        this.setTitle("aNexter - 3G 连线测试");
+        this.setTitle("aNexter - 3G Test");
 
 		con=(ConnectivityManager)getSystemService(Activity.CONNECTIVITY_SERVICE);
 

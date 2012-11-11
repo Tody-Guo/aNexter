@@ -42,7 +42,7 @@ public class bluetooth extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bluetooth);
-        this.setTitle("aNexter - 蓝牙测试");
+        this.setTitle("aNexter - Bluetooth Test");
         
 		btAdapter = BluetoothAdapter.getDefaultAdapter();
 		if (btAdapter == null)
@@ -52,7 +52,7 @@ public class bluetooth extends Activity {
 		else
 		{
     		Toast.makeText(getApplicationContext(),
-					"开始重新搜索蓝牙设备……",
+					"Now starting to search bluetooth devices...",
 					Toast.LENGTH_SHORT).show();
     		
 /*    		IntentFilter intentFilter = new IntentFilter();
@@ -94,11 +94,11 @@ public class bluetooth extends Activity {
         			btAdapter.startDiscovery();
         			foundBTNum = 0;
         			Toast.makeText(getApplicationContext(),
-        					"开始重新搜索蓝牙设备……",
+        					"Now starting to search bluetooth devices...",
         					Toast.LENGTH_SHORT).show();
         		}else{
             		Toast.makeText(getApplicationContext(),
-    						"本机没有蓝牙模组存在……",
+    						"Bluetooth module not found...",
     						Toast.LENGTH_SHORT).show();        			
         		}
         	}
@@ -205,7 +205,7 @@ public class bluetooth extends Activity {
 			if (action.equals("android.bluetooth.device.action.FOUND")) {
 				Log.e("BT", "Found Bluetooth devices!");
 				foundBTNum ++;
-				btCntV.setText("已搜到第 " + foundBTNum + " 蓝牙设备!");
+				btCntV.setText("Found bluetooth " + foundBTNum + " device(s)!");
 				if (foundBTNum >= 3) 
 				{
 					if (timer != null)

@@ -32,7 +32,7 @@ public class eMMC extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.emmc);
-        this.setTitle("aNexter - eMMC信息检查");
+        this.setTitle("aNexter - eMMC Capacity");
         
         bPass = (Button)findViewById(R.id.btn_pass);       
         bPass.setOnClickListener(new OnClickListener(){
@@ -83,7 +83,7 @@ public class eMMC extends Activity {
 	    	eMMC_Total = (float)-2;
 		}
         emmc.setTextSize(38);
-        emmc.setText(String.format("全部容量: %.0f GB \n\n可用容量: %.2f GB"
+        emmc.setText(String.format("All Capacity: %.0f GB \n\nAvaible: %.2f GB"
 	       			, eMMC_Total, aSize));
         
         bFail = (Button)findViewById(R.id.btn_fail);

@@ -27,7 +27,7 @@ public class batinfo extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.batinfo);
-        this.setTitle("aNexter - 电池信息");
+        this.setTitle("aNexter - Battery Information");
         batTxt = (TextView)findViewById(R.id.view_batinfo);
         
         bPass = (Button)findViewById(R.id.btn_pass);
@@ -94,16 +94,16 @@ public class batinfo extends Activity {
 					statusString = "unknown";
 					break;
 				case BatteryManager.BATTERY_STATUS_CHARGING:
-					statusString = "正在充电";
+					statusString = "Charging";
 					break;
 				case BatteryManager.BATTERY_STATUS_DISCHARGING:
-					statusString = "正在放电";
+					statusString = "Discharge";
 					break;
 				case BatteryManager.BATTERY_STATUS_NOT_CHARGING:
-					statusString = "没有正在充电";
+					statusString = "Not Charging";
 					break;
 				case BatteryManager.BATTERY_STATUS_FULL:
-					statusString = "电池已满";
+					statusString = "FULL";
 					break;
 			}
 			        
@@ -114,7 +114,7 @@ public class batinfo extends Activity {
 					healthString = "unknown";
 					break;
 				case BatteryManager.BATTERY_HEALTH_GOOD:
-					healthString = "很好";
+					healthString = "good";
 					break;
 				case BatteryManager.BATTERY_HEALTH_OVERHEAT:
 					healthString = "overheat";
@@ -134,24 +134,24 @@ public class batinfo extends Activity {
 			        
 			switch (plugged) {
 				case BatteryManager.BATTERY_PLUGGED_AC:
-					acString = "AC电源已插入";
+					acString = "AC pluged";
 					break;
 				case BatteryManager.BATTERY_PLUGGED_USB:
-					acString = "USB电源已插入";
+					acString = "USB pluged";
 					break;
 			}
 			batTxt.setTextColor(Color.BLUE);
 			batTxt.setTextSize(38);
 			batTxt.setText(//	  "Battery Information:" +
-							  "\n状态: " + statusString +
-							  "\n电量: " + String.valueOf(level) + "%" +
-						      "\n健康: " + healthString +
+							  "\nStatus: " + statusString +
+							  "\nLevel: " + String.valueOf(level) + "%" +
+						      "\nHealth: " + healthString +
 //			        		  "\nPresent: " + String.valueOf(present)+
 //			        		  "\nScale: " + String.valueOf(scale)+
-			        		  "\n插拔: " + acString +
-			        		  "\n电压: " + String.valueOf(voltage) + "mV" +
+			        		  "\nPlug: " + acString +
+			        		  "\nVoltage: " + String.valueOf(voltage) + "mV" +
 //			        		  "\nTemperature: " + String.valueOf(temperature) + "℃" +
-			        		  "\n工艺: " + technology);			       
+			        		  "\nTechnology: " + technology);			       
 			if (level >= 95) 
 			{
         		Intent i = new Intent();

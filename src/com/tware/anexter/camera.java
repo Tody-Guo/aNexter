@@ -23,7 +23,7 @@ public class camera extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.camera);
-        this.setTitle("aNexter - 前置后置摄像头测试");
+        this.setTitle("aNexter - Camera Test");
         
         bPass = (Button)findViewById(R.id.btn_pass);       
         bPass.setOnClickListener(new OnClickListener(){
@@ -44,7 +44,7 @@ public class camera extends Activity {
         	public void onClick(View v)
         	{
         		Toast.makeText(getApplicationContext(),
-        				"正在打开摄像头，请稍后……",
+        				"Starting Camera, please wait...",
         				Toast.LENGTH_SHORT)
         				.show();
     			try{
@@ -63,7 +63,7 @@ public class camera extends Activity {
         });
         
 		Toast.makeText(getApplicationContext(),
-				"正在打开摄像头，请稍后……",
+				"Starting Camera, please wait...",
 				Toast.LENGTH_SHORT)
 				.show();
         try{

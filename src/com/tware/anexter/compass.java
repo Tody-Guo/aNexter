@@ -23,7 +23,7 @@ public class compass extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.compass);
-        this.setTitle("aNexter - 指南针测试");
+        this.setTitle("aNexter - Compass Test");
         
         bPass = (Button)findViewById(R.id.btn_pass);
         bPass.setEnabled(false);

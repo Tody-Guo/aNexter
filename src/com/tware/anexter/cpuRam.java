@@ -31,7 +31,7 @@ public class cpuRam extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cpuram);
-        this.setTitle("aNexter - CPU & RAM & 显示分辨率 检查");
+        this.setTitle("aNexter - CPU & RAM & Resolution");
         
         Display display = getWindowManager().getDefaultDisplay();
         
@@ -74,8 +74,8 @@ public class cpuRam extends Activity {
         
         cpuRam.setTextSize(38);
         cpuRam.setText("CPU ABI : " +  android.os.Build.CPU_ABI + 
-        		"\n内存大小: " + strMemSize +
-        		"\n分辨率: " + display.getWidth() + " x " + display.getHeight());
+        		"\nMemroy: " + strMemSize +
+        		"\nResolution : " + display.getWidth() + " x " + display.getHeight());
      
         bFail = (Button)findViewById(R.id.btn_fail);
         bFail.setOnClickListener(new OnClickListener(){

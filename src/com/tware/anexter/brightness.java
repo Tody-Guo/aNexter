@@ -34,7 +34,7 @@ public class brightness extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.brightness);
-        this.setTitle("aNexter - 屏幕亮度调节测试");
+        this.setTitle("aNexter - LCD Brightness Test");
         timer.schedule(task, 1000, 1000);
         
         vTips = (TextView)findViewById(R.id.v_bright_tips);
@@ -180,7 +180,7 @@ public class brightness extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
-        menu.add(0, 0, 0, "打开显示设置");
+        menu.add(0, 0, 0, "Open Display Setting");
         return true;
     }
     

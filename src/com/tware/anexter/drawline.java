@@ -28,7 +28,7 @@ public class drawline extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.drawline);
-        this.setTitle("aNexter - 画线测试");
+        this.setTitle("aNexter - Touchpanel Drawing Line Test");
         
         bPass = (Button)findViewById(R.id.btn_pass);       
         bPass.setOnClickListener(new OnClickListener(){
@@ -74,8 +74,8 @@ public class drawline extends Activity {
         
         new AlertDialog.Builder(this)
         	.setIcon(R.drawable.icon)
-        	.setTitle("警告")
-        	.setMessage("请移除AC电源线后进行画线测试")
+        	.setTitle("Warning")
+        	.setMessage("Please remove AD adapter before perform this test!")
         	.setPositiveButton("Start", new DialogInterface.OnClickListener(){
 				@Override
 				public void onClick(DialogInterface dialog, int which) {

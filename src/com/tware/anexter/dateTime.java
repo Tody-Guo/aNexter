@@ -26,7 +26,7 @@ public class dateTime extends Activity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.datetime);
-        this.setTitle("aNexter - 日期时间检查");
+        this.setTitle("aNexter - Date & Time Check");
         timer.schedule(task, 1000, 1000);
         
         bPass = (Button)findViewById(R.id.btn_pass);       
@@ -91,7 +91,7 @@ public class dateTime extends Activity{
 	        
 					timeV.setTextSize(39);
 					timeV.setTextColor(Color.YELLOW);
-					timeV.setText("当前时间: \n    "+ year + "-" + mon + "-" 
+					timeV.setText("Current system time: \n    "+ year + "-" + mon + "-" 
 	        				+ day + " " + hour + ":" + min + ":" + sec);
 					}
 		   });

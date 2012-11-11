@@ -24,7 +24,7 @@ public class ethernet extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ethernet);
-        this.setTitle("aNexter - USB TO LAN测试");
+        this.setTitle("aNexter - USB-TO-LAN Test");
         
         Button setting = (Button)findViewById(R.id.button1);
         setting.setOnClickListener(new OnClickListener(){

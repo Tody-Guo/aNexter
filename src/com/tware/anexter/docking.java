@@ -26,7 +26,7 @@ public class docking extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.docking);
-        this.setTitle("aNexter - 底座测试");
+        this.setTitle("aNexter - Docking Test");
         
         bPass = (Button)findViewById(R.id.btn_pass);
         bPass.setEnabled(false);
