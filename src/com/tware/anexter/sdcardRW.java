@@ -58,6 +58,10 @@ public class sdcardRW extends Activity {
         			case 15:  // android 4.0.3
         				sdpath = "/mnt/sdcard/external_sdcard/";
         				break;
+        			case 16:  // android 4.1
+        				sdpath = "/mnt/external_sd/";
+        				break;
+        	
         			default:
         				sdpath = "/mnt/sdcard/";  // default SD Path
         				break;

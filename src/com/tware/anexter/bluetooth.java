@@ -23,7 +23,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.content.BroadcastReceiver;
-//import android.widget.Toast;
+
 
 public class bluetooth extends Activity {
 	private Button bPass;
@@ -44,23 +44,6 @@ public class bluetooth extends Activity {
         setContentView(R.layout.bluetooth);
         this.setTitle("aNexter - 蓝牙测试");
         
-		btAdapter = BluetoothAdapter.getDefaultAdapter();
-		if (btAdapter == null)
-		{
-			Toast.makeText(getApplicationContext(), "No bluetooth adapter", Toast.LENGTH_LONG).show();
-		}
-		else
-		{
-    		Toast.makeText(getApplicationContext(),
-					"开始重新搜索蓝牙设备……",
-					Toast.LENGTH_SHORT).show();
-    		
-/*    		IntentFilter intentFilter = new IntentFilter();
-    		intentFilter.addAction("android.bluetooth.device.action.FOUND");
-    		registerReceiver(bluetoothReciever, intentFilter);
-    		btAdapter.startDiscovery();
-*/
-		}
 		
 		btCntV = (TextView)findViewById(R.id.btCntView);
 		
@@ -145,7 +128,27 @@ public class bluetooth extends Activity {
         
         LOG = this.getIntent().getStringExtra("LOG");
         timer.schedule(task, 1000, 1000);
-    }        
+
+        btAdapter = BluetoothAdapter.getDefaultAdapter();
+		if (btAdapter == null)
+		{
+			Toast.makeText(getApplicationContext(), "No bluetooth adapter", Toast.LENGTH_LONG).show();
+			btCntV.setText("No Bluetooth Device exist!");
+		}
+		else
+		{
+    		Toast.makeText(getApplicationContext(),
+					"开始重新搜索蓝牙设备……",
+					Toast.LENGTH_SHORT).show();
+    		
+/*    		IntentFilter intentFilter = new IntentFilter();
+    		intentFilter.addAction("android.bluetooth.device.action.FOUND");
+    		registerReceiver(bluetoothReciever, intentFilter);
+    		btAdapter.startDiscovery();
+*/
+		}
+
+    }
     
     Handler uhandle = new Handler();
     Timer timer = new Timer();

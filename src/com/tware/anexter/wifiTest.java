@@ -96,7 +96,23 @@ public class wifiTest extends Activity {
         });
         
         bNa = (Button)findViewById(R.id.btn_na);
-        bNa.setVisibility(View.INVISIBLE);
+        bNa.setVisibility(View.VISIBLE);
+        bNa.setOnClickListener(new OnClickListener(){
+        	@Override
+    		public void onClick(View v)
+        	{
+	        	if (timer != null)
+	        	{
+	        		timer.cancel();
+	        		timer = null;
+	        	}
+        		Intent i = new Intent();
+        		i.putExtra("LOG", LOG + "FAIL|");
+        		i.setClass(wifiTest.this , imageMcu.class);
+        		startActivity(i);
+        		wifiTest.this.finish();
+        	}
+        });
         
         LOG = this.getIntent().getStringExtra("LOG");
 //        Toast.makeText(getApplicationContext(), LOG, Toast.LENGTH_SHORT).show();

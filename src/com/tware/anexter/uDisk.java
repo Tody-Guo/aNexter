@@ -131,7 +131,9 @@ public class uDisk extends Activity {
 			{
 				Log.e("U Disk", "Files: " + list[i].getName());
 				if (list[i].isDirectory() && (	list[i].getName().toString().startsWith("sda") 
-											 || list[i].getName().toString().startsWith("sdb")))
+											 || list[i].getName().toString().startsWith("sdb")
+											 /* Here add for Android 4.1 support */
+											 || list[i].getName().toString().startsWith("usb")))
 				{
 					uList.add(list[i].getAbsolutePath().toString());
 				}
