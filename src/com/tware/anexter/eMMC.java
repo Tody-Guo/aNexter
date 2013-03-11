@@ -62,8 +62,7 @@ public class eMMC extends Activity {
 	    float aSize = (float)blockSize * aBlocks/(1024*1024*1024);
 	    try
 	    {		       	
-	       	FileReader emmc_fr = new FileReader("/proc/partitions");
-	       	BufferedReader emmc_br = new BufferedReader(emmc_fr);
+	       	BufferedReader emmc_br = new BufferedReader(new FileReader("/proc/partitions"));
 	       	String eMMC_str = emmc_br.readLine();
 		    switch(platId)
 		    {	
@@ -81,7 +80,7 @@ public class eMMC extends Activity {
 
 		       		eMMC_Total = (float) (Float.parseFloat(
 		       					eMMC_strSplit[eMMC_strSplit.length-2])/(1000*1000)*1.024*1.024*1.024);
-		       				break;
+		       		break;
 		       				
 		       	case 1:
 		       		eMMC_Total = (float) 0;
@@ -89,15 +88,14 @@ public class eMMC extends Activity {
 		       		{
 		       			if (eMMC_str.contains("mtdblock") && (eMMC_strSplit = eMMC_str.split(" "))!=null)
 		       			{
-		       				eMMC_Total = eMMC_Total + (Float.parseFloat(
-	   		    			eMMC_strSplit[eMMC_strSplit.length-2]));
-		      		
+		       				eMMC_Total = eMMC_Total + (Float.parseFloat(eMMC_strSplit[eMMC_strSplit.length-2]));
 		       			}
 		       			eMMC_str = emmc_br.readLine();
 		       		}
 		       		eMMC_Total = (float) (eMMC_Total/(1000*1000)*1.024*1.024*1.024);
 		       		break;
 		    }
+		    emmc_br.close();
        	}catch (FileNotFoundException e){
        		eMMC_Total = (float)-1;
        	} catch (IOException e) {

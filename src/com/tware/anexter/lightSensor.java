@@ -33,6 +33,9 @@ public class lightSensor extends Activity implements SensorEventListener{
         setContentView(R.layout.lightsensor);
         this.setTitle("aNexter - 光感测试");
 
+		sm = (SensorManager) getSystemService(SENSOR_SERVICE);
+		sensors = sm.getDefaultSensor(Sensor.TYPE_LIGHT);
+        
     	lightV = (TextView)findViewById(R.id.lightView);
 
     	bPass = (Button)findViewById(R.id.btn_pass);     
@@ -77,8 +80,6 @@ public class lightSensor extends Activity implements SensorEventListener{
         
         LOG = this.getIntent().getStringExtra("LOG");
         
-		sm = (SensorManager) getSystemService(SENSOR_SERVICE);
-		sensors = sm.getDefaultSensor(Sensor.TYPE_LIGHT);
 		if (sensors == null)
 		{
 			lightV.setText("No light Sensor");
