@@ -1,3 +1,7 @@
+v1.2.5.2 @ 2012/03/11
+*) fix crash when check WiFi & MAC address
+*) fix eMMC storage size issue
+
 v1.2.5.1 @ 2012/12/24
 *) add N/A function for WiFi Test
 
