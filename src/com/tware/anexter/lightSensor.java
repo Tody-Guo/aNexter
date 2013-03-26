@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -21,7 +22,7 @@ public class lightSensor extends Activity implements SensorEventListener{
 	private Button bBlue;
 	private String LOG;
 
-	final private float CONSTLx = 800; /* define standard lux for testing */
+	private float CONSTLx = 800; /* define standard lux for testing */
 	private SensorManager sm;
 	private Sensor sensors;
 	private TextView lightV;
@@ -82,9 +83,12 @@ public class lightSensor extends Activity implements SensorEventListener{
         
 		if (sensors == null)
 		{
+			lightV.setTextColor(Color.RED);
 			lightV.setText("No light Sensor");
 		}
-        
+		
+		if (util.isRk())
+			CONSTLx = 100;
     }
 	
 	@Override

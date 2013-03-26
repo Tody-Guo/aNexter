@@ -7,5 +7,6 @@
     <string name="copyright">© Tody 2012</string>
     
     <string name="str_Start">Start</string>
+    <string name="str_compass">Loading Compass</string>
     
 </resources>

@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -22,7 +23,7 @@ public class sdToPc extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sdpc);
-        this.setTitle("aNexter - 底座USB 及  连接电脑测试");
+        this.setTitle("aNexter - 连接电脑测试");
         
         bPass = (Button)findViewById(R.id.btn_pass);
 //        bPass.setEnabled(false);
@@ -37,28 +38,29 @@ public class sdToPc extends Activity {
         		sdToPc.this.finish();
         	}
         });
-        
-        
-        
+   
         Button iDockUsb = (Button)findViewById(R.id.btn_dockingusb);
+        iDockUsb.setText("USB Setting");
         iDockUsb.setOnClickListener(new OnClickListener(){
         	@Override
         	public void onClick(View v)
         	{
     			try{
-    				Intent i = new Intent();
-   					i.setClassName("com.oem.iFileManager", "com.oem.iFileManager.iFileManager");
-    		    	startActivity(i);
+            		startActivity(new Intent(Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS));
+//    				Intent i = new Intent();
+//   					i.setClassName("com.oem.iFileManager", "com.oem.iFileManager.iFileManager");
+//    		    	startActivity(i);
     			}catch(ActivityNotFoundException e)
     			{
     				Toast.makeText(getApplicationContext(),
-        					"Open Filemanager Failed!",
+        					"Open Settings Failed!",
         					Toast.LENGTH_SHORT)
         					.show();
     				return ;
-    			}    			
+    			}    	
         	}
         });
+//        iDockUsb.setVisibility(View.INVISIBLE);
         
         Button sdToPc1 = (Button)findViewById(R.id.btn_sdtopc);
         sdToPc1.setOnClickListener(new OnClickListener(){

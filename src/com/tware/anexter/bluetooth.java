@@ -88,7 +88,6 @@ public class bluetooth extends Activity {
         });       
         
         bFail = (Button)findViewById(R.id.btn_fail);
-        bFail.setEnabled(false);
         bFail.setOnClickListener(new OnClickListener(){
         	@Override
     		public void onClick(View v)

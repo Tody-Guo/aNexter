@@ -56,6 +56,8 @@ public class imageMcu extends Activity {
 	    catch (FileNotFoundException e)
 	    {
 	    	mMCU_version = "No MCU File";
+	    	if (util.isRk())
+	    		mMCU_version = "NONE";
 	    } catch (IOException e) {
 	    	mMCU_version = "Read MCU Err";
 		}

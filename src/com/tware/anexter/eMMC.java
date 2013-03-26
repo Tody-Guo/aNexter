@@ -101,6 +101,9 @@ public class eMMC extends Activity {
        	} catch (IOException e) {
        		eMMC_Total = (float)-2;
        	}
+
+	    eMMC_Total = util.setEmmcSize(eMMC_Total);
+	    
         emmc.setTextSize(38);
         emmc.setText(String.format("全部容量: %.0f GB \n\n可用容量: %.2f GB"
 	       			, eMMC_Total, aSize));

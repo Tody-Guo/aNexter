@@ -10,10 +10,14 @@ import java.io.InputStreamReader;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.bluetooth.BluetoothAdapter;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Display;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -26,12 +30,18 @@ import android.widget.TextView;
 public class ANexterActivity extends Activity{
     /** Called when the activity is first created. */
 	private Button bPass;
+	private WifiManager mWifi;
+	private BluetoothAdapter bAdapt;
+	private String TAG = "aNexter";
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         this.setTitle("aNexter");
+        
+        mWifi = (WifiManager)getSystemService(Context.WIFI_SERVICE);
+        bAdapt= BluetoothAdapter.getDefaultAdapter();
         
         TextView vVer = (TextView)findViewById(R.id.view_version);
         try {
@@ -54,6 +64,24 @@ public class ANexterActivity extends Activity{
         		ANexterActivity.this.finish();
         	}
         });
+        
+        /**
+         * Start a thread to enable WiFi and Bluetooth
+         * */
+        new Thread(new Runnable(){
+			@Override
+			public void run() {
+				if (mWifi != null){
+					Log.i(TAG, "Start to enable WiFi...");
+					mWifi.setWifiEnabled(true);
+				}
+				if (bAdapt != null){
+					Log.i(TAG, "Start to enable Bluetooth");
+					bAdapt.enable();
+				}
+			}
+        }).start();
+        
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

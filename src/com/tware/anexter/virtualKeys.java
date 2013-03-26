@@ -43,7 +43,10 @@ public class virtualKeys extends Activity{
         			Intent i = new Intent();
         			i.putExtra("LOG", LOG + "PASS|");
         			i.setClass(virtualKeys.this , gsensorTest.class);
-        			timer.cancel();
+	        		if (timer != null){
+	        			timer.cancel();
+	        			timer = null;
+	        		}
         			startActivity(i);
         			virtualKeys.this.finish();
         		}
@@ -65,7 +68,10 @@ public class virtualKeys extends Activity{
         		i.putExtra("LOG", LOG + "FAIL|");
         		i.setClass(virtualKeys.this , getResults.class);
         		startActivity(i);
-        		timer.cancel();
+        		if (timer != null){
+        			timer.cancel();
+        			timer = null;
+        		}
         		virtualKeys.this.finish();
         	}
         });
@@ -77,6 +83,12 @@ public class virtualKeys extends Activity{
 //        Toast.makeText(getApplicationContext(), LOG, Toast.LENGTH_SHORT).show();
     	
         timer.schedule(task, 1000, 1000);
+        
+        if (util.isRk()){
+        	cBack.setVisibility(View.INVISIBLE);
+        	cHome.setVisibility(View.INVISIBLE);
+        	cMenu.setVisibility(View.INVISIBLE);
+        }
     }
 
     
@@ -95,8 +107,10 @@ public class virtualKeys extends Activity{
 		        		Intent i = new Intent();
 		        		i.putExtra("LOG", LOG + "PASS|");
 		        		i.setClass(virtualKeys.this , gsensorTest.class);
-		        		timer.cancel();
-		        		timer = null;
+		        		if (timer != null){
+		        			timer.cancel();
+		        			timer = null;
+		        		}
 		        		startActivity(i);
 		        		virtualKeys.this.finish();
 					}

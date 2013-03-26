@@ -15,6 +15,7 @@ import android.net.wifi.ScanResult;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
@@ -23,7 +24,6 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-//import android.widget.Toast;
 
 public class wifiTest extends Activity {
 	private Button bPass;
@@ -37,7 +37,7 @@ public class wifiTest extends Activity {
 	private String TAG = "WiFiTest";
 	private String wifiName = "Tablet"; 
 	private Boolean isSet = false;
-
+	private IntentFilter intentFilter = new IntentFilter();
 
 	/** Called when the activity is first created. */
     @Override
@@ -49,11 +49,10 @@ public class wifiTest extends Activity {
         mWifi = (WifiManager)getSystemService(Context.WIFI_SERVICE);
 		con=(ConnectivityManager)getSystemService(Activity.CONNECTIVITY_SERVICE);
 
-		IntentFilter intentFilter = new IntentFilter();
 		intentFilter.addAction("android.net.wifi.SCAN_RESULTS");
 		registerReceiver(scanResultsReceiver, intentFilter);
 		
-        timer.schedule(task, 1000, 2000);
+        timer.schedule(task, 1000, 1000);
 
         bPass = (Button)findViewById(R.id.btn_pass);       
         bPass.setEnabled(false);
@@ -115,7 +114,6 @@ public class wifiTest extends Activity {
         });
         
         LOG = this.getIntent().getStringExtra("LOG");
-//        Toast.makeText(getApplicationContext(), LOG, Toast.LENGTH_SHORT).show();
         
     }
     
@@ -133,7 +131,6 @@ public class wifiTest extends Activity {
 		        	{
 		        		mWifi.setWifiEnabled(true);
 		        	}
-		        		mWifi.startScan();
 					if(con.getNetworkInfo(ConnectivityManager.TYPE_WIFI).isConnected())
 					{
 			        	if (timer != null)
@@ -147,6 +144,8 @@ public class wifiTest extends Activity {
 		        		startActivity(i);
 		        		wifiTest.this.finish();
 			        }
+					/*start scan after connection check*/
+		        	mWifi.startScan();
 				}
 			});
 		}
@@ -179,7 +178,10 @@ public class wifiTest extends Activity {
 						wc.allowedPairwiseCiphers.clear();
 
 						wc.SSID = "\""+retS.SSID+"\"";
-						wc.wepKeys[0]="";
+						if (Build.VERSION.SDK_INT >= 16)
+							wc.wepKeys[0]=null;
+						else
+							wc.wepKeys[0]="";
 						wc.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
 						wc.wepTxKeyIndex = 0;
 
@@ -212,7 +214,6 @@ public class wifiTest extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		IntentFilter intentFilter = new IntentFilter();
 		intentFilter.addAction("android.net.wifi.SCAN_RESULTS");
 		registerReceiver(scanResultsReceiver, intentFilter);
 	}

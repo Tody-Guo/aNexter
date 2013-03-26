@@ -55,7 +55,7 @@ public class uHDMI extends Activity{
         		}
         		Intent i = new Intent();
         		i.putExtra("LOG", LOG + "PASS|");
-        		i.setClass(uHDMI.this , docking.class);
+        		i.setClass(uHDMI.this , lcdrgb.class);
         		startActivity(i);
         		uHDMI.this.finish();
         	}
@@ -150,6 +150,10 @@ public class uHDMI extends Activity{
         });
 */        
         LOG = this.getIntent().getStringExtra("LOG");
+        
+        if (util.isRk())
+        	btnSW.setVisibility(View.INVISIBLE);
+        
     }
     
     
@@ -225,7 +229,8 @@ public class uHDMI extends Activity{
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 			videoP.stopPlayback();
 			videoP.setVisibility(View.INVISIBLE);
-			
+			if (util.isRk())
+				return true;
     		try{
     			Intent i = new Intent();
     			i.setClassName("com.amlogic.HdmiSwitch", "com.amlogic.HdmiSwitch.HdmiSwitch");
@@ -236,7 +241,7 @@ public class uHDMI extends Activity{
 					"Open HdmiSwitch Failed!",
 					Toast.LENGTH_SHORT)
 					.show();
-			return false;
+    			return false;
     		}
 			
 			return true;

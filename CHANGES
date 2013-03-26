@@ -1,3 +1,25 @@
+v1.2.5.4 @ 2012/03/26
+*) fix WiFi auto connection support for Android 4.1
+*) fix WiFi global vars for some crash issues.
+*) add wifi auto connection @ WiFi & BT Mac.
+*) remove no Bluetooth show NO Bluetooth Device issue. 
+*) change light sensor pass value to 100(lx) for rockchip;
+
+v1.2.5.3 @ 2012/03/13
+*) hidden hdmi switch when the platform is rk30
+*) hidden vitual keys when the platform is rk30
+*) remove docking
+*) sdToPc remove docking
+*) fix gyro auto pass to suspend issue
+*) fix eMMC size over 16G issue for rk30
+*) add none mcu condition for rk30
+*) add internal compass function
+*) add enable WiFi and Bluetooth function
+*) change Bluetooth Fail button to enable
+*) change Compass Fail button to enable
+*) change light sensor tips to red.
+
+
 v1.2.5.2 @ 2012/03/11
 *) fix crash when check WiFi & MAC address
 *) fix eMMC storage size issue
