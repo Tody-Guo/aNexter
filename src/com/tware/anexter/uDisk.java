@@ -10,7 +10,6 @@ import java.util.List;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -22,11 +21,11 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class uDisk extends Activity {
+	private final String TAG = "uDisk";
 	private Button bPass;
 	private Button bFail;
 	private Button bNa;
 	private String LOG;
-	private MediaPlayer mediaplay = null;
 	private List<String> uList = new ArrayList<String>();
 	
 	/** Called when the activity is first created. */
@@ -42,6 +41,9 @@ public class uDisk extends Activity {
         	@Override
 			public void onClick(View v)
         	{
+        		if (util.isRk())
+        			rmPenDrive();
+        		
         		Intent i = new Intent();
         		i.putExtra("LOG", LOG + "PASS|");
         		i.setClass(uDisk.this , uHDMI.class);
@@ -87,6 +89,9 @@ public class uDisk extends Activity {
 						bPass.setEnabled(false);
             		}
         		}
+        		/* this is for remove Pendrive of TA0CP, NEW ADDED FUNCTION @ 2013/03/28 */
+        		if (util.isRk())
+        			rmPenDrive();
         	}
         });
        
@@ -120,6 +125,14 @@ public class uDisk extends Activity {
         LOG = this.getIntent().getStringExtra("LOG");
     }
     
+    public void rmPenDrive()
+    {
+        Log.d(TAG, "Send ShuttleUnmount for /mnt/usb_storage Intent for TA0CP!");
+    	Intent intent = new Intent();
+        intent.setAction("ShuttleUnmount");
+        intent.putExtra("devicePath", "/mnt/usb_storage"); 
+        sendBroadcast(intent);
+    }
     
     public boolean getUDiskDirs()
     {
@@ -190,17 +203,9 @@ public class uDisk extends Activity {
     	}
         return true;
     }
-    
-	@Override
-	public void onDestroy()
-	{
-		super.onDestroy();
-		if (mediaplay != null) mediaplay.release();
-	}	
 	
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		// TODO Auto-generated method stub
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 			return true;
 		}

@@ -1,3 +1,7 @@
+v1.2.5.4 @ 2012/03/28
+*) add remove Pendrive function for RK.
+*) change Install location to internal storage.
+
 v1.2.5.4 @ 2012/03/26
 *) fix WiFi auto connection support for Android 4.1
 *) fix WiFi global vars for some crash issues.
