@@ -54,9 +54,7 @@ public class cpuRam extends Activity {
 
        	
         try {
-        
-        	File f = new File("/proc/meminfo");
-        	BufferedReader r = new BufferedReader(new InputStreamReader( new FileInputStream( f )),32);
+        	BufferedReader r = new BufferedReader(new InputStreamReader( new FileInputStream( new File("/proc/meminfo") )),32);
 				line = r.readLine();
 				 memSize =  Long.parseLong(line.substring(line.indexOf(":")+1,
 									line.lastIndexOf("k")).trim())/1024;

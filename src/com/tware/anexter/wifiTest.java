@@ -179,7 +179,7 @@ public class wifiTest extends Activity {
 
 						wc.SSID = "\""+retS.SSID+"\"";
 						if (Build.VERSION.SDK_INT >= 16)
-							wc.wepKeys[0]=null;
+							wc.wepKeys=null;
 						else
 							wc.wepKeys[0]="";
 						wc.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
