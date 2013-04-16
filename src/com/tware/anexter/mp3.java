@@ -93,7 +93,6 @@ public class mp3 extends Activity {
         			mPlayer.stop(); mPlayer.release();
         		}
         		mp3.this.finish();
-        		mp3.this.finish();
         	}
         });
         

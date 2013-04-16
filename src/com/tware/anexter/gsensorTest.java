@@ -37,7 +37,7 @@ public class gsensorTest extends Activity {
         		i.putExtra("LOG", LOG + "PASS|");
         		i.setClass(gsensorTest.this , mp3.class);
         		startActivity(i);
-        		finish();
+        		gsensorTest.this.finish();
         	}
         });
         
@@ -50,7 +50,7 @@ public class gsensorTest extends Activity {
         		i.putExtra("LOG", LOG + "FAIL|");
         		i.setClass(gsensorTest.this , getResults.class);
         		startActivity(i);
-        		finish();
+        		gsensorTest.this.finish();
         	}
         });
         
@@ -95,7 +95,7 @@ public class gsensorTest extends Activity {
 	  	i.putExtra("LOG", LOG + "PASS|");
 	  	i.setClass(gsensorTest.this , mp3.class);
 	  	startActivity(i);
-	  	finish();
+	  	gsensorTest.this.finish();
 	  }
 	}
     

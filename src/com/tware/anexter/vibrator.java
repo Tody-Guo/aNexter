@@ -36,7 +36,6 @@ public class vibrator extends Activity {
         		i.setClass(vibrator.this , sdcardRW.class);
         		startActivity(i);
         		vibrator.this.finish();
-        		vibrator.this.finish();
         	}
         });
         

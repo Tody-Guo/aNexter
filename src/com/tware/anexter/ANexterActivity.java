@@ -99,7 +99,7 @@ public class ANexterActivity extends Activity{
         switch(item.getItemId())
         {
     		case 0:
-    			finish();
+    			ANexterActivity.this.finish();
     			return true;
     		case 1:
     			Display display = getWindowManager().getDefaultDisplay();

@@ -256,7 +256,7 @@ public class getResults extends Activity {
     			startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
     			return true;
     		case 1:
-    			finish();
+    			getResults.this.finish();
     			return true;
         }
         return true;
