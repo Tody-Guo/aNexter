@@ -60,8 +60,6 @@ public class wifiBtMac extends Activity {
         TextView mac = (TextView)findViewById(R.id.view_wifi_bt);
 
         mWifi = (WifiManager)getSystemService(Context.WIFI_SERVICE);
-		intentFilter.addAction("android.net.wifi.SCAN_RESULTS");
-		registerReceiver(scanResultsReceiver, intentFilter);
 
         if (!mWifi.isWifiEnabled())
         {
@@ -148,8 +146,11 @@ public class wifiBtMac extends Activity {
 								wc.allowedPairwiseCiphers.clear();
 
 								wc.SSID = "\""+retS.SSID+"\"";
-								if (Build.VERSION.SDK_INT >= 16)
-									wc.wepKeys=null;
+								if (Build.VERSION.SDK_INT >= 16){
+									wc.wepKeys[0]=null;
+									wc.wepKeys[1]=null;
+									wc.wepKeys[2]=null;
+								}
 								else
 									wc.wepKeys[0]="";
 								wc.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
