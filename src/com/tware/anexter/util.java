@@ -1,9 +1,14 @@
 package com.tware.anexter;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+import android.util.Log;
 
 public class util
 {
+	private static final String TAG = "Util";
 	private static String RKPATH = "/dev/rknand_sys_storage";
 	
 	public static boolean fileExists(String path)
@@ -40,4 +45,27 @@ public class util
 	    else
 	    	return 0;
 	}
+	
+	public static String getRealSDPath(){
+		List<String> sdPathList = new ArrayList<String>();
+		/*
+		 * Init for Shuttle Image sd path...
+		 * 
+		 * */
+		sdPathList.add("/mnt/external_sd/");
+		sdPathList.add("/mnt/sdcard/external_sd/");
+		sdPathList.add("/mnt/sdcard/external_sdcard/");
+		sdPathList.add("/mnt/sdcard2/");
+		sdPathList.add("/mnt/sdcard/external_storage/sdcard1/");
+		
+		int size = sdPathList.size();
+		for (int i=0; i<size; i++)
+		{
+			Log.d(TAG, "path -> "+sdPathList.get(i));
+			if(fileExists(sdPathList.get(i)+"sd.flg"))
+				return sdPathList.get(i);
+		}
+		return "NOT_FOUND";
+	}	
+	
 }

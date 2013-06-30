@@ -22,7 +22,9 @@ public class sdcardRW extends Activity {
 	private Button bPass;
 	private Button bFail;
 	private Button bNa;
-	private String sdpath = "/mnt/sdcard/";
+	private String testSdPath = "/mnt/sdcard/";
+	private String testSdFile = "sdt.txt";
+	
 	private String LOG;
 
     /** Called when the activity is first created. */
@@ -37,43 +39,24 @@ public class sdcardRW extends Activity {
         	@Override
         	public void onClick(View v){
         		
-        		switch (Build.VERSION.SDK_INT)
+        		testSdPath = util.getRealSDPath();
+        		
+        		if (testSdPath.equalsIgnoreCase("NOT_FOUND"))
         		{
-        			case  7: // android 2.1
-        				sdpath = "/sdcard/"; 
-        				break; 
-        			case  8: // android 2.2
-        				sdpath = "/mnt/sdcard/";
-        				break;
-        			case  9: // android 2.3
-        			case 10: // android 2.3.3
-        				sdpath = "/mnt/sdcard/external_sdcard/";
-        				break; 
-        			case 11:  // android 3.0
-        			case 12:  // android 3.1
-        			case 13:  // android 3.2
-        				sdpath = "/mnt/sdcard2/";
-        				break;
-        			case 14:  // android 4.0
-        			case 15:  // android 4.0.3
-        				sdpath = "/mnt/sdcard/external_sdcard/";
-        				break;
-        			case 16:  // android 4.1
-        				sdpath = "/mnt/external_sd/";
-        				break;
-        	
-        			default:
-        				sdpath = "/mnt/sdcard/";  // default SD Path
-        				break;
+    				Toast.makeText(getApplicationContext(),
+        					"Has SD Card insert?",
+        					Toast.LENGTH_SHORT)
+        					.show();
+                    Log.e("aNexter", "SD R/W Fail, no sd card...");
+                    return ;
         		}
         		
-                Log.d("aNexter", "R/W @ \"" + sdpath + "\" @SDK: "+ Build.VERSION.SDK_INT);
+                Log.d("aNexter", "R/W @ \"" + testSdPath + "\" @SDK: "+ Build.VERSION.SDK_INT);
                 
                 try {
-                	if (Environment
-                			.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)
-                			&& fileExists(sdpath + "sd.flg")) { 
-                		File f = new File(sdpath + "sdt.txt");
+                	if (Environment.getExternalStorageState()
+                			.equals(Environment.MEDIA_MOUNTED)) {
+                		File f = new File(testSdPath + testSdFile);
         	        
                 		f.createNewFile();
                 		FileOutputStream wf = new FileOutputStream(f);
@@ -142,12 +125,6 @@ public class sdcardRW extends Activity {
         bNa = (Button)findViewById(R.id.btn_na);
         bNa.setVisibility(View.INVISIBLE);
         
-    }
-    
-    public boolean fileExists(String filePath)
-    {
-    	File f = new File(filePath);
-    	return f.exists();
     }
     
 	@Override

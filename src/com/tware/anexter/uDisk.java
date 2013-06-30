@@ -10,6 +10,7 @@ import java.util.List;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -136,7 +137,13 @@ public class uDisk extends Activity {
     
     public boolean getUDiskDirs()
     {
-		File f = new File("/mnt/");
+    	File f;
+    	
+    	if (Build.VERSION.SDK_INT == 17)
+    		f = new File("/mnt/sdcard/external_storage/");
+    	else
+    		f = new File("/mnt/");
+    	
 		if (f.exists())
 		{
 			File [] list = f.listFiles();
